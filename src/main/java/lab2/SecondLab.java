@@ -28,6 +28,7 @@ public class SecondLab {
             int ID;
             String name;
             String foodTypeString;
+            int foodAmount;
             int weight;
             int foodPerKg;
             FoodType foodType;
@@ -36,18 +37,25 @@ public class SecondLab {
                 ID = Integer.parseInt(li.nextLine());
                 name = li.nextLine();
                 foodTypeString = li.nextLine();
+                foodAmount = Integer.parseInt(li.nextLine());
                 weight = Integer.parseInt(li.nextLine());
                 foodPerKg = Integer.parseInt(li.nextLine());
+
+                if (li.hasNext()) {
+                    li.nextLine();
+                }
+
                 if ((name == null)
                     || (foodTypeString == null)
                     || (weight < 0)
                     || (foodPerKg < 0)
+                    || (foodAmount != foodPerKg * weight)
                     || (ID < 100000)
                     || (ID > 999999)) {
                     throw new IllegalArgumentException("Incorrect data");
                 }
 
-                switch (foodTypeString) {
+                switch (foodTypeString.toUpperCase()) {
                     case "ANYTHING" : {
                         foodType = FoodType.ANYTHING;
                         break;
@@ -116,15 +124,16 @@ public class SecondLab {
 
     public void write(String file) {
         try (FileWriter fw = new FileWriter(file)) {
-            StringBuilder result = new StringBuilder("");
+            StringBuilder result = new StringBuilder();
             animals.forEach(
                 (animal) -> {
                     result
                         .append(animal.getID()).append("\n")
                         .append(animal.getName()).append("\n")
                         .append(animal.getFoodType()).append("\n")
+                        .append(animal.getFoodAmount()).append("\n")
                         .append(animal.getWeight()).append("\n")
-                        .append(animal.getFoodPerKg()).append("\n");
+                        .append(animal.getFoodPerKg()).append("\n\n");
                 }
             );
             fw.write(result.toString());
@@ -206,6 +215,8 @@ public class SecondLab {
             )
         );
 
+        secondLab.animals.addAll(secondLab.read("in.txt"));
+
         secondLab.animals.sort(
             (animal1, animal2) -> {
                 if (animal1.getFoodAmount() != animal2.getFoodAmount()) {
@@ -221,6 +232,8 @@ public class SecondLab {
             .limit(5)
             .forEach((animal) -> System.out.println(animal.getName()));
 
+        System.out.println();
+
         //Вывод последних 3 ID в списке
         secondLab
             .animals
@@ -228,5 +241,7 @@ public class SecondLab {
             .skip(secondLab.animals.size() - 3)
             .limit(5)
             .forEach((animal) -> System.out.println(animal.getID()));
+
+        secondLab.write("out.txt");
     }
 }
