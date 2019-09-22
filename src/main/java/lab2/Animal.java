@@ -13,7 +13,15 @@ public abstract class Animal implements Comparable<Animal> {
         this.foodType = foodType;
         this.name = name;
         this.weight = weight;
-        this.ID = 1000 + countAnimals++;
+        this.ID = 100000 + countAnimals++;
+        this.foodPerKg = foodPerKg;
+    }
+
+    public Animal(FoodType foodType, String name, int weight, int ID, int foodPerKg) {
+        this.foodType = foodType;
+        this.name = name;
+        this.weight = weight;
+        this.ID = ID;
         this.foodPerKg = foodPerKg;
     }
 
@@ -30,6 +38,7 @@ public abstract class Animal implements Comparable<Animal> {
             + "food type=" + foodType
             + ", name='" + name + '\''
             + ", ID=" + ID
+            + ", weight=" + weight
             + ", food amount" + getFoodAmount() + '}';
     }
 

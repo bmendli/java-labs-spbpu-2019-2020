@@ -1,10 +1,137 @@
 package lab2;
 
+import org.apache.commons.io.LineIterator;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SecondLab {
-    List<Animal> animals = new ArrayList<>();
+
+    List<Animal> animals;
+
+    public SecondLab() {
+        animals = new ArrayList<>();
+    }
+
+    public List<Animal> read(String file) {
+        List<Animal> list = new ArrayList<>();
+        try {
+            LineIterator li = new LineIterator(new InputStreamReader(
+                new FileInputStream(file),
+                StandardCharsets.UTF_8)
+            );
+
+            int ID;
+            String name;
+            String foodTypeString;
+            int weight;
+            int foodPerKg;
+            FoodType foodType;
+
+            while (li.hasNext()) {
+                ID = Integer.parseInt(li.nextLine());
+                name = li.nextLine();
+                foodTypeString = li.nextLine();
+                weight = Integer.parseInt(li.nextLine());
+                foodPerKg = Integer.parseInt(li.nextLine());
+                if ((name == null)
+                    || (foodTypeString == null)
+                    || (weight < 0)
+                    || (foodPerKg < 0)
+                    || (ID < 100000)
+                    || (ID > 999999)) {
+                    throw new IllegalArgumentException("Incorrect data");
+                }
+
+                switch (foodTypeString) {
+                    case "ANYTHING" : {
+                        foodType = FoodType.ANYTHING;
+                        break;
+                    }
+                    case "FLESH" : {
+                        foodType = FoodType.FLESH;
+                        break;
+                    }
+                    case "PLANTS" : {
+                        foodType = FoodType.PLANTS;
+                        break;
+                    }
+                    default : {
+                        throw new IllegalArgumentException("Incorrect data about food type");
+                    }
+                }
+
+                switch (foodType) {
+                    case ANYTHING : {
+                        list.add(
+                            new OmnivorousAnimal(
+                                foodType,
+                                name,
+                                weight,
+                                ID,
+                                foodPerKg
+                            )
+                        );
+                        break;
+                    }
+                    case FLESH : {
+                        list.add(
+                            new PredatoryAnimal(
+                                foodType,
+                                name,
+                                weight,
+                                ID,
+                                foodPerKg
+                            )
+                        );
+                        break;
+                    }
+                    case PLANTS : {
+                        list.add(
+                            new HerbivorousAnimal(
+                                foodType,
+                                name,
+                                weight,
+                                ID,
+                                foodPerKg
+                            )
+                        );
+                        break;
+                    }
+                    default : {
+                        throw new IllegalArgumentException("Something wrong");
+                    }
+                }
+            }
+            li.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public void write(String file) {
+        try (FileWriter fw = new FileWriter(file)) {
+            StringBuilder result = new StringBuilder("");
+            animals.forEach(
+                (animal) -> {
+                    result
+                        .append(animal.getID()).append("\n")
+                        .append(animal.getName()).append("\n")
+                        .append(animal.getFoodType()).append("\n")
+                        .append(animal.getWeight()).append("\n")
+                        .append(animal.getFoodPerKg()).append("\n");
+                }
+            );
+            fw.write(result.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) {
         SecondLab secondLab = new SecondLab();
