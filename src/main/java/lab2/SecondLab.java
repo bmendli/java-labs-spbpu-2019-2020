@@ -77,7 +77,6 @@ public class SecondLab {
                     case ANYTHING : {
                         list.add(
                             new OmnivorousAnimal(
-                                foodType,
                                 name,
                                 weight,
                                 ID,
@@ -89,7 +88,6 @@ public class SecondLab {
                     case FLESH : {
                         list.add(
                             new PredatoryAnimal(
-                                foodType,
                                 name,
                                 weight,
                                 ID,
@@ -101,7 +99,6 @@ public class SecondLab {
                     case PLANTS : {
                         list.add(
                             new HerbivorousAnimal(
-                                foodType,
                                 name,
                                 weight,
                                 ID,

@@ -6,8 +6,8 @@ public class PredatoryAnimal extends Animal {
         super(FoodType.FLESH, name, weight, foodPerKg);
     }
 
-    public PredatoryAnimal(FoodType foodType, String name, int weight, int ID, int foodPerKg) {
-        super(foodType, name, weight, ID, foodPerKg);
+    public PredatoryAnimal(String name, int weight, int ID, int foodPerKg) {
+        super(FoodType.FLESH, name, weight, ID, foodPerKg);
     }
 
     @Override

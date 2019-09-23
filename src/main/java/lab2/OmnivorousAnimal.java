@@ -6,8 +6,8 @@ public class OmnivorousAnimal extends Animal {
         super(FoodType.ANYTHING, name, weight, foodPerKg);
     }
 
-    public OmnivorousAnimal(FoodType foodType, String name, int weight, int ID, int foodPerKg) {
-        super(foodType, name, weight, ID, foodPerKg);
+    public OmnivorousAnimal(String name, int weight, int ID, int foodPerKg) {
+        super(FoodType.ANYTHING, name, weight, ID, foodPerKg);
     }
 
     @Override
