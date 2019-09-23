@@ -12,7 +12,8 @@ public class Catalogue {
     Catalogue(){}
 
     Catalogue(Book book) {
-        books = Collections.singletonList(book);
+        books = new ArrayList<>();
+        books.add(book);
     }
 
     Catalogue(List<Book> books) {
