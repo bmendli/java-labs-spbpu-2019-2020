@@ -15,7 +15,8 @@ build
 pom.xml
 *.class
 .DS_Store
-
+target
+*.txt
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
