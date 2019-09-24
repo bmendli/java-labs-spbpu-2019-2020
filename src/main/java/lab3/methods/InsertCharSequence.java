@@ -7,7 +7,7 @@ public class InsertCharSequence extends AbstractInsert {
     private final int end;
 
     public InsertCharSequence(StringBuilder stringBuilder, int dstOffset, CharSequence s, int start, int end) {
-        super(stringBuilder, dstOffset, start - end);
+        super(stringBuilder, dstOffset, end - start);
         if (start > end) {
             throw new IndexOutOfBoundsException("start > end");
         }

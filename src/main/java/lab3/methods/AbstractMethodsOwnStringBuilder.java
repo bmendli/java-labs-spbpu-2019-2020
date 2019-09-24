@@ -2,14 +2,15 @@ package lab3.methods;
 
 import lab3.ExecuteException;
 
-import javax.validation.constraints.NotNull;
-
 public abstract class AbstractMethodsOwnStringBuilder {
 
     protected StringBuilder stringBuilder;
     private boolean isExecute;
 
-    protected AbstractMethodsOwnStringBuilder(@NotNull StringBuilder stringBuilder) {
+    protected AbstractMethodsOwnStringBuilder(StringBuilder stringBuilder) {
+        if (stringBuilder == null) {
+            throw new NullPointerException("string builder is null");
+        }
         this.stringBuilder = stringBuilder;
         isExecute = false;
     }

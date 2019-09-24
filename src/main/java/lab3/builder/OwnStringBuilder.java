@@ -156,7 +156,7 @@ public final class OwnStringBuilder implements Comparable<OwnStringBuilder>, Cha
     }
 
     public int codePointCount(int beginIndex, int endIndex) {
-        return codePointCount(beginIndex, endIndex);
+        return stringBuilder.codePointCount(beginIndex, endIndex);
     }
 
     @Override
@@ -273,6 +273,8 @@ public final class OwnStringBuilder implements Comparable<OwnStringBuilder>, Cha
 
     public OwnStringBuilder insert(int offset, String str) {
         Insert<String> method = new Insert<>(stringBuilder, offset, str);
+        method.execute();
+        executedMethods.add(method);
         return this;
     }
 
