@@ -9,10 +9,11 @@
 .gradle
 .idea
 *.iml
-
+target
+*.txt
 out
 build
-pom.xml
+*.xml
 *.class
 .DS_Store
 
