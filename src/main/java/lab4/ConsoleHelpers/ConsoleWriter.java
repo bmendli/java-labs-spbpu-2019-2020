@@ -39,7 +39,7 @@ public class ConsoleWriter {
         System.out.println();
     }
 
-    public void writelnHelp() {
+    public void printlnHelp() {
         System.out.println(
             INFO_Q + "\n"
             + INFO_LS + "\n"
@@ -55,7 +55,7 @@ public class ConsoleWriter {
         );
     }
 
-    public void writelnInfo(String command) {
+    public void printlnInfo(String command) {
         switch (command) {
             case CommandLine.COMMAND_Q : {
                 System.out.println(INFO_Q);

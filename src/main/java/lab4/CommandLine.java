@@ -46,12 +46,12 @@ public class CommandLine implements AutoCloseable {
 
             switch (commands[0]) {
                 case COMMAND_HELP : {
-                    consoleWriter.writelnHelp();
+                    consoleWriter.printlnHelp();
                     break;
                 }
                 case COMMAND_MAN :
                 case COMMAND_INFO : {
-                    consoleWriter.writelnInfo(commands[1]);
+                    consoleWriter.printlnInfo(commands[1]);
                     break;
                 }
                 case COMMAND_PWD : {
