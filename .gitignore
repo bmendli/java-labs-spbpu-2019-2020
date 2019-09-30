@@ -3,7 +3,7 @@
 
 # Log file
 *.log
-
+*.txt
 # BlueJ files
 *.ctxt
 .gradle
@@ -12,7 +12,6 @@
 /target
 out
 build
-pom.xml
 *.class
 .DS_Store
 
