@@ -12,7 +12,6 @@
 
 out
 build
-pom.xml
 *.class
 .DS_Store
 target
