@@ -3,16 +3,15 @@
 
 # Log file
 *.log
-
+*.txt
 # BlueJ files
 *.ctxt
 .gradle
 .idea
 *.iml
-
+target
 out
 build
-pom.xml
 *.class
 .DS_Store
 
