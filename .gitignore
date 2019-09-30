@@ -13,7 +13,6 @@ target
 *.txt
 out
 build
-*.xml
 *.class
 .DS_Store
 
