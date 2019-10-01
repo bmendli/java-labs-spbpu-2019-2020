@@ -4,20 +4,23 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
 public class FilePropertiesWorker {
 
     private Map<String, String> properties;
-    private File file;
+    private Path file;
     private String key;
     private String value;
     private boolean isEndLastLineOfBackSlash;
     private boolean isParse;
 
-    public FilePropertiesWorker(File file) throws FileNotFoundException{
-        if (!file.toString().endsWith("\t.properties")) {
+    public FilePropertiesWorker(Path file) throws FileNotFoundException{
+        if (!Files.exists(file)) {
             throw new FileNotFoundException("Incorrect file");
         }
         this.file = file;
@@ -29,7 +32,7 @@ public class FilePropertiesWorker {
         if (!file.endsWith(".properties")) {
             throw new FileNotFoundException("Incorrect file");
         }
-        this.file = new File(file);
+        this.file = Paths.get(file);
         this.isParse = false;
         this.isEndLastLineOfBackSlash = false;
     }
@@ -41,7 +44,7 @@ public class FilePropertiesWorker {
 
         properties = new HashMap<>();
         try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
+            BufferedReader br = new BufferedReader(new FileReader(file.toFile()));
             br.lines().forEach(this::parseLine);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
