@@ -1,4 +1,4 @@
-package lab4.ConsoleHelpers;
+package lab4.consolehelpers;
 
 import java.util.Scanner;
 

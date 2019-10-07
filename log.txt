@@ -1,0 +1,579 @@
+INFO : transaction id=8 executed from id=12 to id=6 amount=50265
+INFO : transaction id=38 executed from id=9 to id=7 amount=28130
+INFO : transaction id=4 executed from id=11 to id=12 amount=34780
+INFO : transaction id=35 executed from id=7 to id=9 amount=31473
+INFO : transaction id=11 executed from id=0 to id=5 amount=6880
+INFO : transaction id=10 executed from id=6 to id=12 amount=31590
+INFO : transaction id=9 executed from id=14 to id=12 amount=76029
+INFO : transaction id=1 executed from id=5 to id=2 amount=46742
+INFO : transaction id=0 executed from id=15 to id=16 amount=83866
+INFO : transaction id=21 executed from id=13 to id=16 amount=44263
+INFO : transaction id=15 executed from id=8 to id=2 amount=61394
+INFO : transaction id=7 executed from id=1 to id=6 amount=77233
+INFO : transaction id=16 executed from id=1 to id=5 amount=9513
+INFO : transaction id=18 executed from id=16 to id=3 amount=70577
+INFO : transaction id=70 executed from id=2 to id=14 amount=62027
+INFO : transaction id=2 executed from id=4 to id=15 amount=60081
+INFO : transaction id=13 executed from id=10 to id=9 amount=51646
+INFO : transaction id=19 executed from id=3 to id=1 amount=26706
+INFO : transaction id=76 executed from id=10 to id=15 amount=40927
+INFO : transaction id=6 executed from id=4 to id=3 amount=42112
+INFO : transaction id=98 executed from id=2 to id=13 amount=72245
+INFO : transaction id=33 executed from id=16 to id=8 amount=3136
+INFO : transaction id=17 executed from id=1 to id=4 amount=35338
+INFO : transaction id=51 executed from id=8 to id=5 amount=48980
+INFO : transaction id=34 executed from id=13 to id=15 amount=26091
+INFO : transaction id=5 executed from id=15 to id=2 amount=80066
+INFO : transaction id=3 executed from id=5 to id=1 amount=1329
+INFO : transaction id=12 executed from id=14 to id=6 amount=54390
+INFO : transaction id=40 executed from id=6 to id=10 amount=26095
+INFO : transaction id=14 executed from id=0 to id=14 amount=81377
+INFO : transaction id=43 executed from id=7 to id=14 amount=17317
+INFO : transaction id=25 executed from id=11 to id=16 amount=13684
+INFO : transaction id=22 executed from id=12 to id=1 amount=48153
+INFO : transaction id=79 executed from id=9 to id=6 amount=5687
+INFO : transaction id=29 executed from id=12 to id=1 amount=57874
+INFO : transaction id=63 executed from id=11 to id=7 amount=51812
+INFO : transaction id=52 executed from id=7 to id=2 amount=12634
+INFO : transaction id=26 executed from id=0 to id=2 amount=27038
+INFO : transaction id=73 executed from id=6 to id=1 amount=59126
+INFO : transaction id=24 executed from id=14 to id=11 amount=46729
+INFO : transaction id=20 executed from id=5 to id=16 amount=61895
+INFO : transaction id=42 executed from id=15 to id=0 amount=19742
+INFO : transaction id=53 executed from id=13 to id=8 amount=29690
+INFO : transaction id=67 executed from id=8 to id=13 amount=52672
+INFO : transaction id=23 executed from id=1 to id=15 amount=69973
+INFO : transaction id=44 executed from id=16 to id=9 amount=77458
+INFO : transaction id=111 executed from id=2 to id=13 amount=25013
+INFO : transaction id=48 executed from id=4 to id=0 amount=72793
+INFO : transaction id=95 executed from id=10 to id=3 amount=77237
+INFO : transaction id=36 executed from id=3 to id=14 amount=45041
+INFO : transaction id=134 executed from id=10 to id=9 amount=37571
+INFO : transaction id=60 executed from id=4 to id=14 amount=25217
+INFO : transaction id=118 executed from id=2 to id=11 amount=6077
+INFO : transaction id=46 executed from id=16 to id=3 amount=73549
+INFO : transaction id=30 executed from id=1 to id=2 amount=55864
+INFO : transaction id=80 executed from id=8 to id=1 amount=80534
+INFO : transaction id=64 executed from id=13 to id=11 amount=24353
+INFO : transaction id=49 executed from id=15 to id=8 amount=78577
+INFO : transaction id=27 executed from id=5 to id=4 amount=30180
+INFO : transaction id=28 executed from id=14 to id=8 amount=42051
+INFO : transaction id=96 executed from id=6 to id=7 amount=67581
+INFO : transaction id=32 executed from id=0 to id=13 amount=83524
+INFO : transaction id=57 executed from id=7 to id=8 amount=5722
+INFO : transaction id=82 executed from id=11 to id=4 amount=2770
+INFO : transaction id=31 executed from id=12 to id=10 amount=666
+INFO : transaction id=110 executed from id=9 to id=0 amount=33019
+INFO : transaction id=78 executed from id=12 to id=3 amount=43731
+INFO : transaction id=91 executed from id=11 to id=0 amount=15245
+INFO : transaction id=58 executed from id=7 to id=15 amount=8437
+INFO : transaction id=55 executed from id=0 to id=9 amount=34731
+INFO : transaction id=104 executed from id=6 to id=5 amount=69274
+INFO : transaction id=37 executed from id=14 to id=10 amount=38366
+INFO : transaction id=47 executed from id=5 to id=9 amount=11113
+INFO : transaction id=84 executed from id=15 to id=10 amount=49078
+INFO : transaction id=66 executed from id=13 to id=1 amount=9630
+INFO : transaction id=94 executed from id=8 to id=9 amount=53836
+INFO : transaction id=56 executed from id=1 to id=2 amount=71305
+INFO : transaction id=61 executed from id=16 to id=8 amount=41477
+INFO : transaction id=126 executed from id=2 to id=3 amount=63561
+INFO : transaction id=83 executed from id=4 to id=9 amount=42645
+INFO : transaction id=135 executed from id=10 to id=9 amount=45311
+INFO : transaction id=50 executed from id=3 to id=16 amount=56929
+INFO : transaction id=140 executed from id=10 to id=12 amount=37797
+INFO : transaction id=87 executed from id=4 to id=11 amount=32734
+INFO : transaction id=147 executed from id=2 to id=12 amount=8886
+INFO : transaction id=101 executed from id=16 to id=1 amount=75181
+INFO : transaction id=72 executed from id=1 to id=2 amount=46483
+INFO : transaction id=116 executed from id=8 to id=16 amount=11106
+INFO : transaction id=74 executed from id=13 to id=14 amount=22602
+INFO : transaction id=97 executed from id=15 to id=7 amount=50698
+INFO : transaction id=54 executed from id=5 to id=7 amount=50948
+INFO : transaction id=39 executed from id=14 to id=7 amount=74582
+INFO : transaction id=127 executed from id=6 to id=14 amount=84542
+INFO : transaction id=93 executed from id=0 to id=14 amount=12265
+INFO : transaction id=71 executed from id=7 to id=4 amount=37751
+INFO : transaction id=108 executed from id=11 to id=15 amount=78410
+INFO : transaction id=89 executed from id=12 to id=10 amount=23823
+INFO : transaction id=112 executed from id=9 to id=12 amount=32225
+INFO : transaction id=121 executed from id=12 to id=9 amount=31465
+INFO : transaction id=131 executed from id=11 to id=8 amount=66973
+INFO : transaction id=92 executed from id=7 to id=1 amount=72584
+INFO : transaction id=102 executed from id=0 to id=12 amount=53166
+INFO : transaction id=129 executed from id=6 to id=0 amount=31444
+INFO : transaction id=41 executed from id=14 to id=11 amount=41009
+INFO : transaction id=86 executed from id=5 to id=6 amount=24211
+INFO : transaction id=138 executed from id=15 to id=11 amount=66363
+INFO : transaction id=77 executed from id=13 to id=14 amount=61934
+INFO : transaction id=123 executed from id=8 to id=2 amount=51984
+INFO : transaction id=109 executed from id=1 to id=16 amount=16642
+INFO : transaction id=124 executed from id=16 to id=4 amount=80113
+INFO : transaction id=231 executed from id=2 to id=9 amount=85633
+INFO : transaction id=88 executed from id=4 to id=12 amount=17460
+INFO : transaction id=144 executed from id=10 to id=11 amount=56450
+INFO : transaction id=59 executed from id=3 to id=12 amount=48325
+INFO : transaction id=145 executed from id=10 to id=16 amount=69593
+INFO : transaction id=125 executed from id=4 to id=11 amount=43390
+INFO : transaction id=233 executed from id=2 to id=11 amount=20104
+INFO : transaction id=143 executed from id=16 to id=5 amount=64984
+INFO : transaction id=122 executed from id=1 to id=4 amount=19263
+INFO : transaction id=136 executed from id=8 to id=2 amount=25137
+INFO : transaction id=90 executed from id=13 to id=8 amount=33497
+INFO : transaction id=148 executed from id=15 to id=6 amount=2251
+INFO : transaction id=137 executed from id=5 to id=12 amount=83463
+INFO : transaction id=45 executed from id=14 to id=12 amount=81211
+INFO : transaction id=150 executed from id=6 to id=15 amount=65340
+INFO : transaction id=130 executed from id=0 to id=12 amount=6133
+INFO : transaction id=115 executed from id=7 to id=4 amount=8136
+INFO : transaction id=142 executed from id=11 to id=16 amount=68170
+INFO : transaction id=151 executed from id=12 to id=7 amount=24353
+INFO : transaction id=114 executed from id=9 to id=8 amount=46342
+INFO : transaction id=165 executed from id=12 to id=1 amount=66972
+INFO : transaction id=157 executed from id=11 to id=2 amount=86271
+INFO : transaction id=133 executed from id=7 to id=4 amount=80975
+INFO : transaction id=141 executed from id=0 to id=4 amount=72576
+INFO : transaction id=174 executed from id=6 to id=12 amount=12749
+INFO : transaction id=62 executed from id=14 to id=15 amount=79001
+INFO : transaction id=139 executed from id=5 to id=9 amount=7925
+INFO : transaction id=153 executed from id=15 to id=3 amount=3196
+INFO : transaction id=100 executed from id=13 to id=10 amount=38594
+INFO : transaction id=187 executed from id=8 to id=10 amount=2820
+INFO : transaction id=132 executed from id=1 to id=10 amount=32540
+INFO : transaction id=146 executed from id=16 to id=14 amount=70472
+INFO : transaction id=283 executed from id=2 to id=4 amount=40402
+INFO : transaction id=156 executed from id=4 to id=16 amount=31974
+INFO : transaction id=68 executed from id=3 to id=11 amount=26779
+INFO : transaction id=166 executed from id=4 to id=0 amount=9818
+INFO : transaction id=290 executed from id=2 to id=7 amount=35458
+INFO : transaction id=177 executed from id=16 to id=6 amount=9682
+INFO : transaction id=170 executed from id=1 to id=4 amount=84588
+INFO : transaction id=245 executed from id=8 to id=14 amount=8393
+INFO : transaction id=103 executed from id=13 to id=1 amount=38496
+INFO : transaction id=163 executed from id=15 to id=13 amount=15822
+INFO : transaction id=152 executed from id=5 to id=11 amount=76875
+INFO : transaction id=65 executed from id=14 to id=4 amount=78723
+INFO : transaction id=182 executed from id=6 to id=5 amount=38492
+INFO : transaction id=154 executed from id=0 to id=3 amount=22108
+INFO : transaction id=159 executed from id=7 to id=15 amount=56190
+INFO : transaction id=191 executed from id=11 to id=6 amount=17199
+INFO : transaction id=179 executed from id=12 to id=7 amount=25346
+INFO : transaction id=117 executed from id=9 to id=13 amount=27543
+INFO : transaction id=183 executed from id=12 to id=3 amount=60315
+INFO : transaction id=217 executed from id=12 to id=4 amount=61951
+INFO : transaction id=210 executed from id=11 to id=7 amount=55279
+INFO : transaction id=175 executed from id=7 to id=1 amount=62991
+INFO : transaction id=155 executed from id=0 to id=3 amount=75191
+INFO : transaction id=190 executed from id=6 to id=8 amount=3838
+INFO : transaction id=75 executed from id=14 to id=12 amount=77792
+INFO : transaction id=199 executed from id=5 to id=15 amount=45609
+INFO : transaction id=173 executed from id=15 to id=2 amount=9989
+INFO : transaction id=106 executed from id=13 to id=9 amount=15597
+INFO : transaction id=265 executed from id=8 to id=1 amount=65953
+INFO : transaction id=180 executed from id=1 to id=12 amount=93
+INFO : transaction id=212 executed from id=16 to id=6 amount=42811
+INFO : transaction id=300 executed from id=2 to id=4 amount=68916
+INFO : transaction id=186 executed from id=4 to id=3 amount=12563
+INFO : transaction id=69 executed from id=3 to id=10 amount=55592
+WARNING : transaction id=167 was decline because not enough money(42243) from id=10, to id=8
+INFO : transaction id=204 executed from id=4 to id=5 amount=68458
+INFO : transaction id=307 executed from id=2 to id=12 amount=30441
+INFO : transaction id=234 executed from id=16 to id=0 amount=49035
+INFO : transaction id=189 executed from id=1 to id=9 amount=73413
+INFO : transaction id=296 executed from id=8 to id=6 amount=58456
+INFO : transaction id=119 executed from id=13 to id=14 amount=44114
+INFO : transaction id=176 executed from id=15 to id=11 amount=81350
+INFO : transaction id=206 executed from id=5 to id=15 amount=8126
+INFO : transaction id=85 executed from id=14 to id=15 amount=33231
+INFO : transaction id=197 executed from id=6 to id=8 amount=65294
+INFO : transaction id=160 executed from id=0 to id=11 amount=77948
+INFO : transaction id=181 executed from id=7 to id=9 amount=62353
+INFO : transaction id=230 executed from id=11 to id=14 amount=71024
+INFO : transaction id=227 executed from id=12 to id=0 amount=34735
+INFO : transaction id=128 executed from id=9 to id=11 amount=56766
+INFO : transaction id=235 executed from id=12 to id=11 amount=26386
+INFO : transaction id=238 executed from id=11 to id=10 amount=17716
+INFO : transaction id=184 executed from id=7 to id=9 amount=44172
+WARNING : transaction id=171 was decline because not enough money(11831) from id=0, to id=3
+INFO : transaction id=205 executed from id=6 to id=2 amount=28777
+INFO : transaction id=215 executed from id=6 to id=14 amount=26499
+INFO : transaction id=225 executed from id=6 to id=4 amount=52913
+INFO : transaction id=237 executed from id=6 to id=11 amount=16337
+INFO : transaction id=105 executed from id=14 to id=9 amount=43400
+INFO : transaction id=209 executed from id=5 to id=4 amount=47281
+INFO : transaction id=193 executed from id=15 to id=14 amount=2175
+INFO : transaction id=149 executed from id=13 to id=16 amount=85847
+INFO : transaction id=312 executed from id=8 to id=10 amount=15782
+INFO : transaction id=195 executed from id=1 to id=4 amount=55298
+INFO : transaction id=247 executed from id=16 to id=5 amount=30819
+INFO : transaction id=334 executed from id=2 to id=8 amount=15970
+INFO : transaction id=257 executed from id=4 to id=3 amount=28755
+INFO : transaction id=81 executed from id=3 to id=16 amount=21216
+INFO : transaction id=294 executed from id=4 to id=13 amount=21787
+INFO : transaction id=357 executed from id=2 to id=11 amount=84751
+INFO : transaction id=268 executed from id=16 to id=8 amount=72532
+INFO : transaction id=203 executed from id=1 to id=9 amount=5934
+INFO : transaction id=326 executed from id=8 to id=12 amount=62870
+INFO : transaction id=194 executed from id=13 to id=0 amount=9126
+INFO : transaction id=254 executed from id=15 to id=7 amount=28609
+INFO : transaction id=221 executed from id=5 to id=3 amount=7583
+INFO : transaction id=107 executed from id=14 to id=9 amount=37910
+INFO : transaction id=249 executed from id=6 to id=10 amount=2802
+INFO : transaction id=188 executed from id=7 to id=14 amount=83225
+INFO : transaction id=239 executed from id=11 to id=13 amount=11911
+INFO : transaction id=272 executed from id=12 to id=9 amount=85961
+INFO : transaction id=158 executed from id=9 to id=15 amount=74981
+INFO : transaction id=284 executed from id=12 to id=3 amount=11329
+INFO : transaction id=263 executed from id=11 to id=7 amount=53765
+INFO : transaction id=214 executed from id=7 to id=6 amount=68767
+INFO : transaction id=262 executed from id=6 to id=16 amount=1011
+INFO : transaction id=161 executed from id=14 to id=11 amount=7658
+INFO : transaction id=223 executed from id=5 to id=3 amount=7617
+INFO : transaction id=256 executed from id=15 to id=16 amount=70402
+INFO : transaction id=202 executed from id=13 to id=12 amount=50427
+INFO : transaction id=211 executed from id=13 to id=15 amount=48670
+INFO : transaction id=332 executed from id=8 to id=6 amount=10515
+INFO : transaction id=241 executed from id=1 to id=11 amount=41004
+INFO : transaction id=286 executed from id=16 to id=14 amount=86453
+INFO : transaction id=362 executed from id=2 to id=14 amount=82718
+INFO : transaction id=301 executed from id=4 to id=10 amount=84129
+INFO : transaction id=99 executed from id=3 to id=16 amount=29477
+INFO : transaction id=324 executed from id=4 to id=16 amount=40671
+INFO : transaction id=365 executed from id=2 to id=15 amount=26099
+INFO : transaction id=321 executed from id=16 to id=5 amount=38925
+INFO : transaction id=250 executed from id=1 to id=13 amount=53984
+INFO : transaction id=401 executed from id=8 to id=11 amount=25519
+INFO : transaction id=213 executed from id=13 to id=5 amount=14697
+INFO : transaction id=260 executed from id=15 to id=16 amount=82464
+INFO : transaction id=226 executed from id=5 to id=11 amount=42012
+INFO : transaction id=162 executed from id=14 to id=6 amount=13472
+INFO : transaction id=269 executed from id=6 to id=15 amount=9121
+INFO : transaction id=236 executed from id=7 to id=4 amount=84885
+INFO : transaction id=248 executed from id=7 to id=3 amount=37684
+INFO : transaction id=273 executed from id=11 to id=10 amount=32319
+INFO : transaction id=308 executed from id=11 to id=0 amount=52220
+INFO : transaction id=315 executed from id=11 to id=4 amount=145
+INFO : transaction id=333 executed from id=11 to id=13 amount=84909
+INFO : transaction id=343 executed from id=11 to id=9 amount=31653
+INFO : transaction id=345 executed from id=11 to id=4 amount=968
+INFO : transaction id=358 executed from id=11 to id=9 amount=1815
+INFO : transaction id=297 executed from id=12 to id=8 amount=19640
+INFO : transaction id=340 executed from id=12 to id=14 amount=15047
+INFO : transaction id=396 executed from id=12 to id=7 amount=83564
+INFO : transaction id=457 executed from id=12 to id=5 amount=50832
+INFO : transaction id=462 executed from id=12 to id=10 amount=46979
+INFO : transaction id=463 executed from id=12 to id=1 amount=1980
+INFO : transaction id=468 executed from id=12 to id=0 amount=52502
+INFO : transaction id=471 executed from id=12 to id=11 amount=55225
+INFO : transaction id=164 executed from id=9 to id=15 amount=77245
+INFO : transaction id=364 executed from id=11 to id=16 amount=67777
+INFO : transaction id=368 executed from id=11 to id=8 amount=60016
+INFO : transaction id=377 executed from id=11 to id=15 amount=46051
+INFO : transaction id=264 executed from id=7 to id=12 amount=43930
+INFO : transaction id=270 executed from id=6 to id=13 amount=1794
+INFO : transaction id=274 executed from id=5 to id=14 amount=25659
+INFO : transaction id=276 executed from id=5 to id=16 amount=14555
+INFO : transaction id=306 executed from id=5 to id=9 amount=14553
+INFO : transaction id=178 executed from id=14 to id=5 amount=56685
+INFO : transaction id=281 executed from id=15 to id=16 amount=52162
+INFO : transaction id=232 executed from id=13 to id=16 amount=77728
+INFO : transaction id=405 executed from id=8 to id=16 amount=9622
+INFO : transaction id=288 executed from id=1 to id=7 amount=36958
+INFO : transaction id=329 executed from id=16 to id=4 amount=84729
+INFO : transaction id=373 executed from id=2 to id=7 amount=41381
+INFO : transaction id=330 executed from id=4 to id=8 amount=78549
+INFO : transaction id=113 executed from id=3 to id=0 amount=15772
+INFO : transaction id=344 executed from id=4 to id=12 amount=16960
+INFO : transaction id=404 executed from id=2 to id=11 amount=7902
+INFO : transaction id=336 executed from id=16 to id=5 amount=50101
+INFO : transaction id=293 executed from id=1 to id=8 amount=54361
+INFO : transaction id=415 executed from id=8 to id=4 amount=31139
+INFO : transaction id=246 executed from id=13 to id=7 amount=16634
+INFO : transaction id=298 executed from id=15 to id=0 amount=35729
+INFO : transaction id=185 executed from id=14 to id=5 amount=36684
+INFO : transaction id=309 executed from id=5 to id=2 amount=86361
+INFO : transaction id=282 executed from id=6 to id=3 amount=18881
+INFO : transaction id=287 executed from id=7 to id=11 amount=37805
+INFO : transaction id=393 executed from id=11 to id=16 amount=72998
+INFO : transaction id=395 executed from id=11 to id=13 amount=56825
+INFO : transaction id=169 executed from id=9 to id=14 amount=75998
+INFO : transaction id=417 executed from id=11 to id=0 amount=46509
+INFO : transaction id=289 executed from id=7 to id=0 amount=69549
+INFO : transaction id=291 executed from id=6 to id=15 amount=7245
+INFO : transaction id=325 executed from id=5 to id=1 amount=23803
+INFO : transaction id=207 executed from id=14 to id=13 amount=432
+INFO : transaction id=319 executed from id=15 to id=12 amount=81680
+INFO : transaction id=255 executed from id=13 to id=6 amount=39199
+INFO : transaction id=437 executed from id=8 to id=10 amount=69658
+INFO : transaction id=311 executed from id=1 to id=3 amount=82069
+INFO : transaction id=372 executed from id=16 to id=13 amount=3844
+INFO : transaction id=410 executed from id=2 to id=6 amount=62555
+INFO : transaction id=385 executed from id=4 to id=1 amount=40047
+INFO : transaction id=389 executed from id=4 to id=14 amount=57377
+INFO : transaction id=390 executed from id=4 to id=6 amount=41738
+INFO : transaction id=424 executed from id=4 to id=16 amount=67070
+INFO : transaction id=120 executed from id=3 to id=1 amount=26542
+INFO : transaction id=434 executed from id=4 to id=15 amount=65519
+INFO : transaction id=433 executed from id=2 to id=7 amount=33603
+INFO : transaction id=388 executed from id=16 to id=15 amount=81709
+INFO : transaction id=320 executed from id=1 to id=14 amount=49893
+INFO : transaction id=440 executed from id=8 to id=11 amount=81205
+INFO : transaction id=259 executed from id=13 to id=5 amount=18237
+INFO : transaction id=342 executed from id=15 to id=8 amount=37732
+INFO : transaction id=216 executed from id=14 to id=9 amount=25982
+INFO : transaction id=352 executed from id=5 to id=2 amount=50290
+INFO : transaction id=292 executed from id=6 to id=16 amount=45478
+INFO : transaction id=316 executed from id=7 to id=14 amount=51766
+INFO : transaction id=419 executed from id=11 to id=14 amount=65526
+INFO : transaction id=198 executed from id=9 to id=14 amount=39223
+INFO : transaction id=426 executed from id=11 to id=6 amount=33598
+INFO : transaction id=317 executed from id=7 to id=5 amount=74675
+INFO : transaction id=295 executed from id=6 to id=0 amount=70798
+INFO : transaction id=354 executed from id=5 to id=10 amount=84181
+INFO : transaction id=219 executed from id=14 to id=9 amount=71106
+INFO : transaction id=371 executed from id=15 to id=0 amount=57738
+INFO : transaction id=279 executed from id=13 to id=0 amount=24458
+INFO : transaction id=459 executed from id=8 to id=15 amount=86217
+INFO : transaction id=339 executed from id=1 to id=15 amount=18156
+INFO : transaction id=391 executed from id=16 to id=6 amount=33708
+INFO : transaction id=443 executed from id=2 to id=6 amount=45486
+INFO : transaction id=435 executed from id=4 to id=3 amount=37982
+INFO : transaction id=168 executed from id=3 to id=2 amount=31015
+INFO : transaction id=447 executed from id=4 to id=9 amount=59200
+INFO : transaction id=450 executed from id=2 to id=7 amount=60924
+INFO : transaction id=418 executed from id=16 to id=6 amount=24540
+INFO : transaction id=347 executed from id=1 to id=2 amount=33818
+INFO : transaction id=484 executed from id=8 to id=10 amount=52998
+INFO : transaction id=303 executed from id=13 to id=12 amount=32759
+INFO : transaction id=379 executed from id=15 to id=10 amount=27956
+INFO : transaction id=244 executed from id=14 to id=1 amount=12835
+INFO : transaction id=392 executed from id=5 to id=1 amount=58305
+INFO : transaction id=380 executed from id=6 to id=15 amount=55985
+INFO : transaction id=328 executed from id=7 to id=10 amount=29058
+INFO : transaction id=441 executed from id=11 to id=9 amount=1712
+INFO : transaction id=201 executed from id=9 to id=10 amount=42891
+INFO : transaction id=453 executed from id=11 to id=4 amount=40870
+INFO : transaction id=346 executed from id=7 to id=3 amount=4970
+INFO : transaction id=420 executed from id=6 to id=0 amount=49976
+INFO : transaction id=398 executed from id=5 to id=14 amount=12672
+INFO : transaction id=261 executed from id=14 to id=1 amount=64149
+INFO : transaction id=384 executed from id=15 to id=16 amount=63939
+INFO : transaction id=313 executed from id=13 to id=14 amount=52953
+INFO : transaction id=493 executed from id=8 to id=16 amount=85781
+INFO : transaction id=355 executed from id=1 to id=7 amount=23378
+INFO : transaction id=474 executed from id=2 to id=16 amount=41902
+INFO : transaction id=460 executed from id=4 to id=14 amount=29962
+INFO : transaction id=196 executed from id=3 to id=5 amount=42199
+INFO : transaction id=473 executed from id=4 to id=13 amount=45338
+INFO : transaction id=479 executed from id=2 to id=9 amount=42695
+INFO : transaction id=387 executed from id=1 to id=6 amount=51195
+INFO : transaction id=425 executed from id=1 to id=10 amount=73110
+INFO : transaction id=439 executed from id=1 to id=10 amount=37467
+INFO : transaction id=322 executed from id=13 to id=8 amount=11170
+INFO : transaction id=403 executed from id=15 to id=6 amount=19816
+INFO : transaction id=267 executed from id=14 to id=5 amount=8375
+INFO : transaction id=411 executed from id=5 to id=1 amount=46727
+INFO : transaction id=429 executed from id=5 to id=7 amount=37559
+INFO : transaction id=421 executed from id=6 to id=16 amount=47283
+INFO : transaction id=378 executed from id=7 to id=8 amount=65806
+INFO : transaction id=476 executed from id=11 to id=6 amount=78815
+INFO : transaction id=220 executed from id=9 to id=16 amount=17036
+INFO : transaction id=406 executed from id=7 to id=0 amount=50662
+INFO : transaction id=427 executed from id=6 to id=11 amount=58972
+INFO : transaction id=444 executed from id=5 to id=7 amount=32163
+INFO : transaction id=278 executed from id=14 to id=1 amount=16389
+INFO : transaction id=423 executed from id=15 to id=6 amount=6547
+WARNING : transaction id=327 was decline because not enough money(22448) from id=13, to id=0
+INFO : transaction id=456 executed from id=1 to id=7 amount=45536
+INFO : transaction id=487 executed from id=2 to id=7 amount=18741
+INFO : transaction id=477 executed from id=4 to id=11 amount=72325
+INFO : transaction id=243 executed from id=3 to id=16 amount=42639
+WARNING : transaction id=499 was decline because not enough money(8607) from id=2, to id=9
+INFO : transaction id=483 executed from id=1 to id=0 amount=5325
+INFO : transaction id=445 executed from id=15 to id=16 amount=27032
+INFO : transaction id=304 executed from id=14 to id=0 amount=46681
+WARNING : transaction id=455 was decline because not enough money(2086) from id=5, to id=0
+INFO : transaction id=469 executed from id=6 to id=7 amount=14664
+INFO : transaction id=408 executed from id=7 to id=14 amount=76703
+INFO : transaction id=436 executed from id=7 to id=9 amount=44871
+INFO : transaction id=228 executed from id=9 to id=6 amount=73392
+INFO : transaction id=253 executed from id=9 to id=7 amount=45061
+INFO : transaction id=266 executed from id=9 to id=4 amount=10899
+INFO : transaction id=280 executed from id=9 to id=4 amount=46741
+INFO : transaction id=305 executed from id=9 to id=0 amount=50775
+INFO : transaction id=478 executed from id=6 to id=1 amount=43943
+INFO : transaction id=323 executed from id=14 to id=2 amount=7811
+INFO : transaction id=451 executed from id=15 to id=2 amount=3273
+WARNING : transaction id=501 was decline because not enough money(30433) from id=1, to id=15
+INFO : transaction id=251 executed from id=3 to id=15 amount=62660
+INFO : transaction id=366 executed from id=14 to id=9 amount=80810
+INFO : transaction id=310 executed from id=9 to id=15 amount=33430
+INFO : transaction id=335 executed from id=9 to id=10 amount=10722
+INFO : transaction id=348 executed from id=9 to id=2 amount=31771
+INFO : transaction id=360 executed from id=9 to id=16 amount=86424
+INFO : transaction id=381 executed from id=9 to id=2 amount=82604
+INFO : transaction id=386 executed from id=9 to id=3 amount=28283
+INFO : transaction id=448 executed from id=9 to id=8 amount=84559
+INFO : transaction id=490 executed from id=9 to id=13 amount=74207
+INFO : transaction id=491 executed from id=9 to id=13 amount=70385
+INFO : transaction id=367 executed from id=14 to id=12 amount=2883
+INFO : transaction id=400 executed from id=14 to id=13 amount=4501
+INFO : transaction id=252 executed from id=3 to id=1 amount=26584
+INFO : transaction id=409 executed from id=14 to id=2 amount=80210
+INFO : transaction id=337 executed from id=3 to id=10 amount=26683
+INFO : transaction id=338 executed from id=3 to id=2 amount=59505
+INFO : transaction id=351 executed from id=3 to id=1 amount=32275
+INFO : transaction id=359 executed from id=3 to id=4 amount=67207
+INFO : transaction id=361 executed from id=3 to id=5 amount=9751
+INFO : transaction id=375 executed from id=3 to id=0 amount=14819
+INFO : transaction id=397 executed from id=3 to id=2 amount=35715
+INFO : transaction id=402 executed from id=3 to id=7 amount=8506
+INFO : transaction id=466 executed from id=3 to id=14 amount=35019
+INFO : transaction id=485 executed from id=3 to id=5 amount=56285
+INFO : transaction id=488 executed from id=3 to id=14 amount=36159
+INFO : transaction id=428 executed from id=14 to id=3 amount=79461
+INFO : transaction id=449 executed from id=14 to id=5 amount=80631
+INFO : transaction id=452 executed from id=14 to id=7 amount=62014
+INFO : transaction id=458 executed from id=14 to id=11 amount=23938
+INFO : transaction id=464 executed from id=14 to id=13 amount=20466
+INFO : transaction id=486 executed from id=14 to id=0 amount=68522
+INFO : transaction id=495 executed from id=14 to id=9 amount=60920
+INFO : transaction id=497 executed from id=14 to id=11 amount=18855
+INFO : transaction id=500 executed from id=14 to id=13 amount=14594
+INFO : transaction id=455 executed from id=5 to id=0 amount=13716
+INFO : transaction id=171 executed from id=0 to id=3 amount=62123
+INFO : transaction id=501 executed from id=1 to id=15 amount=46182
+INFO : transaction id=172 executed from id=0 to id=4 amount=33050
+INFO : transaction id=461 executed from id=5 to id=12 amount=24823
+INFO : transaction id=192 executed from id=0 to id=16 amount=36030
+INFO : transaction id=465 executed from id=5 to id=13 amount=13590
+INFO : transaction id=200 executed from id=0 to id=2 amount=34711
+INFO : transaction id=467 executed from id=5 to id=1 amount=860
+INFO : transaction id=222 executed from id=0 to id=5 amount=8321
+INFO : transaction id=482 executed from id=5 to id=15 amount=58029
+INFO : transaction id=242 executed from id=0 to id=6 amount=16179
+INFO : transaction id=258 executed from id=0 to id=5 amount=71494
+INFO : transaction id=271 executed from id=0 to id=10 amount=40250
+INFO : transaction id=275 executed from id=0 to id=10 amount=34776
+INFO : transaction id=285 executed from id=0 to id=3 amount=67019
+INFO : transaction id=302 executed from id=0 to id=4 amount=38622
+INFO : transaction id=318 executed from id=0 to id=12 amount=4462
+INFO : transaction id=349 executed from id=0 to id=13 amount=83692
+INFO : transaction id=356 executed from id=0 to id=4 amount=25492
+INFO : transaction id=363 executed from id=0 to id=6 amount=8684
+INFO : transaction id=369 executed from id=0 to id=15 amount=82848
+INFO : transaction id=370 executed from id=0 to id=5 amount=61857
+INFO : transaction id=407 executed from id=0 to id=7 amount=5948
+INFO : transaction id=422 executed from id=0 to id=14 amount=30593
+INFO : transaction id=480 executed from id=0 to id=13 amount=29186
+WARNING : transaction id=481 was decline because not enough money(57555) from id=0, to id=4
+INFO : transaction id=327 executed from id=13 to id=0 amount=83759
+INFO : transaction id=341 executed from id=13 to id=12 amount=22094
+INFO : transaction id=167 executed from id=10 to id=8 amount=72267
+INFO : transaction id=499 executed from id=2 to id=9 amount=62891
+INFO : transaction id=208 executed from id=10 to id=7 amount=82671
+INFO : transaction id=350 executed from id=13 to id=16 amount=61284
+INFO : transaction id=218 executed from id=10 to id=5 amount=5515
+INFO : transaction id=353 executed from id=13 to id=8 amount=53357
+INFO : transaction id=224 executed from id=10 to id=13 amount=65333
+INFO : transaction id=374 executed from id=13 to id=9 amount=53934
+INFO : transaction id=229 executed from id=10 to id=1 amount=44733
+INFO : transaction id=413 executed from id=13 to id=12 amount=53618
+INFO : transaction id=240 executed from id=10 to id=7 amount=66625
+INFO : transaction id=431 executed from id=13 to id=4 amount=83369
+INFO : transaction id=277 executed from id=10 to id=4 amount=32149
+INFO : transaction id=299 executed from id=10 to id=6 amount=31908
+INFO : transaction id=314 executed from id=10 to id=11 amount=58129
+INFO : transaction id=331 executed from id=10 to id=7 amount=66396
+INFO : transaction id=376 executed from id=10 to id=0 amount=35671
+INFO : transaction id=382 executed from id=10 to id=0 amount=73515
+INFO : transaction id=383 executed from id=10 to id=3 amount=32639
+INFO : transaction id=394 executed from id=10 to id=13 amount=21135
+INFO : transaction id=399 executed from id=10 to id=5 amount=21481
+INFO : transaction id=446 executed from id=13 to id=11 amount=23923
+INFO : transaction id=412 executed from id=10 to id=12 amount=47718
+WARNING : transaction id=470 was decline because not enough money(48345) from id=13, to id=7
+INFO : transaction id=414 executed from id=10 to id=12 amount=25955
+INFO : transaction id=416 executed from id=10 to id=16 amount=73338
+INFO : transaction id=430 executed from id=10 to id=3 amount=13891
+WARNING : transaction id=432 was decline because not enough money(14295) from id=10, to id=5
+INFO : transaction id=481 executed from id=0 to id=4 amount=67387
+WARNING : transaction id=470 was decline because not enough money(48345) from id=13, to id=7
+INFO : transaction id=489 executed from id=0 to id=9 amount=40541
+INFO : transaction id=494 executed from id=0 to id=2 amount=22536
+WARNING : transaction id=432 was decline because not enough money(14295) from id=10, to id=5
+WARNING : transaction id=470 was decline because not enough money(48345) from id=13, to id=7
+WARNING : transaction id=432 was decline because not enough money(14295) from id=10, to id=5
+WARNING : transaction id=432 was decline because not enough money(14295) from id=10, to id=5
+WARNING : transaction id=470 was decline because not enough money(48345) from id=13, to id=7
+WARNING : transaction id=432 was decline because not enough money(14295) from id=10, to id=5
+WARNING : transaction id=470 was decline because not enough money(48345) from id=13, to id=7
+WARNING : transaction id=432 was decline because not enough money(14295) from id=10, to id=5
+WARNING : transaction id=470 was decline because not enough money(48345) from id=13, to id=7
+WARNING : transaction id=432 was decline because not enough money(14295) from id=10, to id=5
+WARNING : transaction id=470 was decline because not enough money(48345) from id=13, to id=7
+WARNING : transaction id=432 was decline because not enough money(14295) from id=10, to id=5
+WARNING : transaction id=432 was decline because not enough money(14295) from id=10, to id=5
+WARNING : transaction id=470 was decline because not enough money(48345) from id=13, to id=7
+WARNING : transaction id=432 was decline because not enough money(14295) from id=10, to id=5
+WARNING : transaction id=470 was decline because not enough money(48345) from id=13, to id=7
+WARNING : transaction id=432 not executed
+WARNING : transaction id=438 was decline because not enough money(53534) from id=10, to id=6
+WARNING : transaction id=470 was decline because not enough money(48345) from id=13, to id=7
+WARNING : transaction id=438 was decline because not enough money(53534) from id=10, to id=6
+WARNING : transaction id=470 not executed
+INFO : transaction id=472 executed from id=13 to id=14 amount=13432
+WARNING : transaction id=475 was decline because not enough money(64747) from id=13, to id=1
+WARNING : transaction id=438 was decline because not enough money(53534) from id=10, to id=6
+WARNING : transaction id=475 was decline because not enough money(64747) from id=13, to id=1
+WARNING : transaction id=438 was decline because not enough money(53534) from id=10, to id=6
+WARNING : transaction id=475 was decline because not enough money(64747) from id=13, to id=1
+WARNING : transaction id=438 was decline because not enough money(53534) from id=10, to id=6
+WARNING : transaction id=475 was decline because not enough money(64747) from id=13, to id=1
+WARNING : transaction id=438 was decline because not enough money(53534) from id=10, to id=6
+WARNING : transaction id=475 was decline because not enough money(64747) from id=13, to id=1
+WARNING : transaction id=438 was decline because not enough money(53534) from id=10, to id=6
+WARNING : transaction id=475 was decline because not enough money(64747) from id=13, to id=1
+WARNING : transaction id=438 was decline because not enough money(53534) from id=10, to id=6
+WARNING : transaction id=475 was decline because not enough money(64747) from id=13, to id=1
+WARNING : transaction id=438 was decline because not enough money(53534) from id=10, to id=6
+WARNING : transaction id=475 was decline because not enough money(64747) from id=13, to id=1
+WARNING : transaction id=438 was decline because not enough money(53534) from id=10, to id=6
+WARNING : transaction id=475 was decline because not enough money(64747) from id=13, to id=1
+WARNING : transaction id=438 not executed
+INFO : transaction id=442 executed from id=10 to id=3 amount=10195
+WARNING : transaction id=454 was decline because not enough money(7617) from id=10, to id=8
+WARNING : transaction id=475 was decline because not enough money(64747) from id=13, to id=1
+WARNING : transaction id=454 was decline because not enough money(7617) from id=10, to id=8
+WARNING : transaction id=475 not executed
+WARNING : transaction id=492 was decline because not enough money(49586) from id=13, to id=2
+WARNING : transaction id=454 was decline because not enough money(7617) from id=10, to id=8
+WARNING : transaction id=492 was decline because not enough money(49586) from id=13, to id=2
+WARNING : transaction id=454 was decline because not enough money(7617) from id=10, to id=8
+WARNING : transaction id=492 was decline because not enough money(49586) from id=13, to id=2
+WARNING : transaction id=454 was decline because not enough money(7617) from id=10, to id=8
+WARNING : transaction id=492 was decline because not enough money(49586) from id=13, to id=2
+WARNING : transaction id=454 was decline because not enough money(7617) from id=10, to id=8
+WARNING : transaction id=492 was decline because not enough money(49586) from id=13, to id=2
+WARNING : transaction id=454 was decline because not enough money(7617) from id=10, to id=8
+WARNING : transaction id=492 was decline because not enough money(49586) from id=13, to id=2
+WARNING : transaction id=454 was decline because not enough money(7617) from id=10, to id=8
+WARNING : transaction id=492 was decline because not enough money(49586) from id=13, to id=2
+WARNING : transaction id=454 was decline because not enough money(7617) from id=10, to id=8
+WARNING : transaction id=492 was decline because not enough money(49586) from id=13, to id=2
+WARNING : transaction id=454 was decline because not enough money(7617) from id=10, to id=8
+WARNING : transaction id=492 was decline because not enough money(49586) from id=13, to id=2
+WARNING : transaction id=454 not executed
+WARNING : transaction id=496 was decline because not enough money(57739) from id=10, to id=5
+WARNING : transaction id=492 was decline because not enough money(49586) from id=13, to id=2
+WARNING : transaction id=496 was decline because not enough money(57739) from id=10, to id=5
+WARNING : transaction id=492 not executed
+INFO : transaction id=498 executed from id=13 to id=15 amount=8792
+WARNING : transaction id=496 was decline because not enough money(57739) from id=10, to id=5
+WARNING : transaction id=496 was decline because not enough money(57739) from id=10, to id=5
+WARNING : transaction id=496 was decline because not enough money(57739) from id=10, to id=5
+WARNING : transaction id=496 was decline because not enough money(57739) from id=10, to id=5
+WARNING : transaction id=496 was decline because not enough money(57739) from id=10, to id=5
+WARNING : transaction id=496 was decline because not enough money(57739) from id=10, to id=5
+WARNING : transaction id=496 was decline because not enough money(57739) from id=10, to id=5
+WARNING : transaction id=496 was decline because not enough money(57739) from id=10, to id=5
+WARNING : transaction id=496 not executed

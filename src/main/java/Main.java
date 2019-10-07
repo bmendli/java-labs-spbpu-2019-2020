@@ -1,29 +1,23 @@
-<<<<<<< HEAD
-import lab4.CommandLine;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 
-public class Main {
-
-    public static void main(String[] args) {
-        CommandLine commandLine = new CommandLine();
-        commandLine.launchCommandLine();
-=======
-import lab5.FilePropertiesWorker;
-
-import java.io.FileNotFoundException;
-
-public class Main {
-    public static void main(String[] args) {
+public class Main extends Application {
+    @Override
+    public void start(Stage primaryStage) {
         try {
-            FilePropertiesWorker filePropertiesWorker = new FilePropertiesWorker("pro.properties");
-            filePropertiesWorker.parse();
-            filePropertiesWorker.getProperties().forEach(
-                (String key, String value) -> {
-                    System.out.println(key + " " + value);
-                }
-            );
-        } catch (FileNotFoundException e) {
+            BorderPane root = new BorderPane();
+            Scene scene = new Scene(root,400,400);
+            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch(Exception e) {
             e.printStackTrace();
         }
->>>>>>> lab5
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }

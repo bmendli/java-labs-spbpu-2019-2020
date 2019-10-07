@@ -1,8 +1,8 @@
 package lab4;
 
-import lab4.ConsoleHelpers.ConsoleReader;
-import lab4.ConsoleHelpers.ConsoleWriter;
-import lab4.FileHelpers.FileWorker;
+import lab4.consolehelpers.ConsoleReader;
+import lab4.consolehelpers.ConsoleWriter;
+import lab4.filehelpers.FileWorker;
 
 import java.io.File;
 import java.io.FileNotFoundException;

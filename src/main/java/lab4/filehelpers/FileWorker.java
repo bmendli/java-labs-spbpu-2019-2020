@@ -1,7 +1,7 @@
-package lab4.FileHelpers;
+package lab4.filehelpers;
 
-import lab4.ConsoleHelpers.ConsoleReader;
-import lab4.ConsoleHelpers.ConsoleWriter;
+import lab4.consolehelpers.ConsoleReader;
+import lab4.consolehelpers.ConsoleWriter;
 
 import java.io.BufferedReader;
 import java.io.File;
