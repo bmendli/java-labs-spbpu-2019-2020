@@ -1,7 +1,7 @@
-package lab6.baseClasses;
+package lab6.base;
 
-import lab6.ownExceptions.NotEnoughMoneyException;
-import lab6.ownExceptions.TransactionsIsCompletedYet;
+import lab6.exceptions.NotEnoughMoneyException;
+import lab6.exceptions.TransactionNotCompletedException;
 
 import java.util.Objects;
 
@@ -28,9 +28,9 @@ public class Transaction {
         this.isCompleted = false;
     }
 
-    public void executeTransaction() throws NotEnoughMoneyException, TransactionsIsCompletedYet {
+    public void executeTransaction() throws NotEnoughMoneyException, TransactionNotCompletedException {
         if (isCompleted) {
-            throw new TransactionsIsCompletedYet("transaction is done");
+            throw new TransactionNotCompletedException("transaction is done");
         }
         if (isNotEnoughMoney()) {
             throw new NotEnoughMoneyException("transaction id=" + ID + " was decline because not enough money(" +

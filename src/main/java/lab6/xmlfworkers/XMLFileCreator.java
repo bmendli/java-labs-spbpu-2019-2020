@@ -1,4 +1,4 @@
-package lab6.xmlFileWorkers;
+package lab6.xmlfworkers;
 
 import java.io.FileWriter;
 import java.io.IOException;

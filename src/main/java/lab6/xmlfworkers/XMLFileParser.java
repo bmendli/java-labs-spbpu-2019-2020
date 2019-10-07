@@ -1,7 +1,7 @@
-package lab6.xmlFileWorkers;
+package lab6.xmlfworkers;
 
 import lab6.RegistrationAccounts;
-import lab6.baseClasses.Transaction;
+import lab6.base.Transaction;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

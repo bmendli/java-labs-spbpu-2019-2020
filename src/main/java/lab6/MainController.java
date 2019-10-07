@@ -1,9 +1,9 @@
 package lab6;
 
-import lab6.baseClasses.Account;
-import lab6.baseClasses.Transaction;
-import lab6.xmlFileWorkers.XMLFileCreator;
-import lab6.xmlFileWorkers.XMLFileParser;
+import lab6.base.Account;
+import lab6.base.Transaction;
+import lab6.xmlfworkers.XMLFileCreator;
+import lab6.xmlfworkers.XMLFileParser;
 
 import java.io.IOException;
 import java.util.ArrayDeque;

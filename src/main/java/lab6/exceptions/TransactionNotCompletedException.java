@@ -1,29 +1,29 @@
-package lab6.ownExceptions;
+package lab6.exceptions;
 
 import java.io.PrintStream;
 import java.io.PrintWriter;
 
-public class NoSuchAccountException extends RuntimeException {
-    public NoSuchAccountException() {
+public class TransactionNotCompletedException extends Exception {
+    public TransactionNotCompletedException() {
         super();
     }
 
-    public NoSuchAccountException(String message) {
+    public TransactionNotCompletedException(String message) {
         super(message);
     }
 
-    public NoSuchAccountException(String message, Throwable cause) {
+    public TransactionNotCompletedException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public NoSuchAccountException(Throwable cause) {
+    public TransactionNotCompletedException(Throwable cause) {
         super(cause);
     }
 
-    protected NoSuchAccountException(String message,
-                                     Throwable cause,
-                                     boolean enableSuppression,
-                                     boolean writableStackTrace) {
+    protected TransactionNotCompletedException(String message,
+                                               Throwable cause,
+                                               boolean enableSuppression,
+                                               boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 

@@ -1,6 +1,6 @@
-package lab6.baseClasses;
+package lab6.base;
 
-import lab6.xmlFileWorkers.XMLFileCreator;
+import lab6.xmlfworkers.XMLFileCreator;
 
 import java.util.Objects;
 import java.util.Random;

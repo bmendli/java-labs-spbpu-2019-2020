@@ -1,4 +1,4 @@
-package lab6.ownExceptions;
+package lab6.exceptions;
 
 import java.io.PrintStream;
 import java.io.PrintWriter;

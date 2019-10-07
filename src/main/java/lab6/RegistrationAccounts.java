@@ -1,8 +1,8 @@
 package lab6;
 
-import lab6.baseClasses.Account;
-import lab6.ownExceptions.NoSuchAccountException;
-import lab6.xmlFileWorkers.XMLFileCreator;
+import lab6.base.Account;
+import lab6.exceptions.NoSuchAccountException;
+import lab6.xmlfworkers.XMLFileCreator;
 
 import java.util.ArrayList;
 import java.util.List;

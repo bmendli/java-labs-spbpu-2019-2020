@@ -1,8 +1,8 @@
 package lab6;
 
-import lab6.baseClasses.Transaction;
-import lab6.ownExceptions.NotEnoughMoneyException;
-import lab6.ownExceptions.TransactionsIsCompletedYet;
+import lab6.base.Transaction;
+import lab6.exceptions.NotEnoughMoneyException;
+import lab6.exceptions.TransactionNotCompletedException;
 
 import java.util.Queue;
 import java.util.concurrent.RecursiveAction;
@@ -50,7 +50,7 @@ public class TransactionHandler extends RecursiveAction {
                     consoleLogger.log(System.Logger.Level.WARNING, e.getMessage() + "\n");
                     logger.log(System.Logger.Level.WARNING, e.getMessage() + "\n");
                     helpQuiesce();
-                } catch (TransactionsIsCompletedYet transactionsIsCompletedYet) {
+                } catch (TransactionNotCompletedException transactionNotCompletedException) {
                     consoleLogger.log(System.Logger.Level.WARNING, "transaction id=" + transaction.getID()
                         + " already executed\n");
                     logger.log(System.Logger.Level.WARNING, "transaction id=" + transaction.getID()

@@ -1,29 +1,29 @@
-package lab6.ownExceptions;
+package lab6.exceptions;
 
 import java.io.PrintStream;
 import java.io.PrintWriter;
 
-public class TransactionsIsCompletedYet extends Exception {
-    public TransactionsIsCompletedYet() {
+public class NoSuchAccountException extends RuntimeException {
+    public NoSuchAccountException() {
         super();
     }
 
-    public TransactionsIsCompletedYet(String message) {
+    public NoSuchAccountException(String message) {
         super(message);
     }
 
-    public TransactionsIsCompletedYet(String message, Throwable cause) {
+    public NoSuchAccountException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public TransactionsIsCompletedYet(Throwable cause) {
+    public NoSuchAccountException(Throwable cause) {
         super(cause);
     }
 
-    protected TransactionsIsCompletedYet(String message,
-                                         Throwable cause,
-                                         boolean enableSuppression,
-                                         boolean writableStackTrace) {
+    protected NoSuchAccountException(String message,
+                                     Throwable cause,
+                                     boolean enableSuppression,
+                                     boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 
