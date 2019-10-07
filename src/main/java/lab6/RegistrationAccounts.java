@@ -21,11 +21,7 @@ public final class RegistrationAccounts {
     }
 
     public static Account getAccount(int ID) {
-        for (Account account : accounts) {
-            if (account.getID() == ID) {
-                return account;
-            }
-        }
-        throw new NoSuchAccountException("No such account " + ID);
+        return accounts.stream().filter((account -> account.getID() == ID)).findFirst()
+            .orElseThrow(() -> {throw new NoSuchAccountException("No such account " + ID);});
     }
 }
