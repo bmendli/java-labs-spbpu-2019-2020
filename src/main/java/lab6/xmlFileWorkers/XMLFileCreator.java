@@ -1,26 +1,22 @@
-package lab6;
+package lab6.xmlFileWorkers;
 
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 
 public class XMLFileCreator {
 
-    private static final int MAX_VALUE_SUMM_TRANSACTION = 100_000;
-    private static final int TRANSACTION_QUANTITY = 500;
-    private static final int USERS_QUANTITY = 20;
+    private static final Random random = new Random();
+    private static final int MAX_VALUE_SUM_TRANSACTION = 50_000 + random.nextInt(75_000);
+    private static final int TRANSACTION_QUANTITY = 400 + random.nextInt(800);
+    private static final int USERS_QUANTITY = 10 + random.nextInt(20);
+    private static final String PATH_TO_XML_FILE = "D:\\Program Files (x86)\\java-labs-spbpu-2019-2020\\lab6.xml";
 
-    private Random random;
-
-    public XMLFileCreator() {
-        this.random = new Random();
-    }
 
     public void createXMLFile() {
 
         try (FileWriter fileWriter
-                 = new FileWriter("D:\\Program Files (x86)\\java-labs-spbpu-2019-2020\\lab6.xml")) {
+                 = new FileWriter(PATH_TO_XML_FILE)) {
             fileWriter.write(
                 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
                 "<transactions count=\"" + TRANSACTION_QUANTITY + "\">\n"
@@ -38,7 +34,7 @@ public class XMLFileCreator {
                         i,
                         from,
                         to,
-                        random.nextInt(MAX_VALUE_SUMM_TRANSACTION)
+                        random.nextInt(MAX_VALUE_SUM_TRANSACTION)
                     )
                 );
             }
@@ -48,8 +44,15 @@ public class XMLFileCreator {
         }
     }
 
-    public static void main(String[] args) {
-        XMLFileCreator xmlFileCreator = new XMLFileCreator();
-        xmlFileCreator.createXMLFile();
+    public static int getUsersQuantity() {
+        return USERS_QUANTITY;
+    }
+
+    public static int getMaxValueSumTransaction() {
+        return MAX_VALUE_SUM_TRANSACTION;
+    }
+
+    static String getPathToXmlFile() {
+        return PATH_TO_XML_FILE;
     }
 }
