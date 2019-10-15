@@ -12,8 +12,8 @@ public class Book {
 
     public Book(
         @NotNull String ID,
-        @NotNull String author,
         @NotNull String name,
+        @NotNull String author,
         @NotNull String releaseYear
     ) {
         this.ID = ID;

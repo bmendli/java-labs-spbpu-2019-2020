@@ -3,6 +3,7 @@ package lab6;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.logging.Level;
 
 public class OwnLogger {
 
@@ -18,7 +19,7 @@ public class OwnLogger {
         }
     }
 
-    void log(System.Logger.Level level, String message) {
+    void log(Level level, String message) {
         try {
             fileWriter.write(level.getName() + " : " + message);
         } catch (IOException e) {

@@ -14,6 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 public class MainController {
 
@@ -49,12 +50,13 @@ public class MainController {
         tasks = new ArrayList<>(accountTransactions.values());
 
         ForkJoinPool forkJoinPool = new ForkJoinPool(tasks.size());
-        forkJoinPool.invoke(new TransactionHandler(0, logger, System.getLogger("Transactions")));
+        forkJoinPool.invoke(new TransactionHandler(0, logger, Logger.getLogger("Transactions")));
         forkJoinPool.awaitQuiescence(1, TimeUnit.MINUTES);
         forkJoinPool.shutdown();
         try {
+            Thread.sleep(1000);
             logger.close();
-        } catch (IOException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }

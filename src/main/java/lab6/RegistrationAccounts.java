@@ -22,6 +22,6 @@ public final class RegistrationAccounts {
 
     public static Account getAccount(int ID) {
         return accounts.stream().filter((account -> account.getID() == ID)).findFirst()
-            .orElseThrow(() -> {throw new NoSuchAccountException("No such account " + ID);});
+            .orElseThrow(NoSuchAccountException::new);
     }
 }

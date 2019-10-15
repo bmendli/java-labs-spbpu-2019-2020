@@ -1,7 +1,6 @@
 package lab1.task3;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,14 +8,16 @@ public class Catalogue {
 
     private List<Book> books;
 
-    Catalogue(){}
+    public Catalogue(){
+        books = new ArrayList<>();
+    }
 
-    Catalogue(Book book) {
+    public Catalogue(Book book) {
         books = new ArrayList<>();
         books.add(book);
     }
 
-    Catalogue(List<Book> books) {
+    public Catalogue(List<Book> books) {
         this.books = new ArrayList<>();
         this.books.addAll(books);
     }
@@ -29,7 +30,7 @@ public class Catalogue {
         this.books.addAll(books);
     }
 
-    public Book searchByID(String ID) {
+    public Book searchByID(String ID) throws NoSuchBookException {
         for (Book book : books) {
             if (book.getID().equals(ID)) {
                 return book;
@@ -38,7 +39,7 @@ public class Catalogue {
         throw new NoSuchBookException("Book doesn't exist in catalogue");
     }
 
-    public Book searchByReleaseYears(String releaseYear) {
+    public Book searchByReleaseYears(String releaseYear) throws NoSuchBookException {
         for (Book book : books) {
             if (book.getReleaseYear().equals(releaseYear)) {
                 return book;
@@ -47,7 +48,7 @@ public class Catalogue {
         throw new NoSuchBookException("Book doesn't exist in catalogue");
     }
 
-    public Book searchByName(String name) {
+    public Book searchByName(String name) throws NoSuchBookException {
         for (Book book : books) {
             if (book.getName().equals(name)) {
                 return book;
@@ -56,7 +57,7 @@ public class Catalogue {
         throw new NoSuchBookException("Book doesn't exist in catalogue");
     }
 
-    public Book searchByAuthor(String author) {
+    public Book searchByAuthor(String author) throws NoSuchBookException {
         for (Book book : books) {
             if (book.getAuthor().equals(author)) {
                 return book;
@@ -65,26 +66,26 @@ public class Catalogue {
         throw new NoSuchBookException("Book doesn't exist in catalogue");
     }
 
-    public void remove(Book book) {
+    public void remove(Book book) throws NoSuchBookException {
         if (!books.contains(book)) {
             throw new NoSuchBookException("Book doesn't exist in catalogue");
         }
         books.remove(book);
     }
 
-    public void removeByID(String ID) {
+    public void removeByID(String ID) throws NoSuchBookException {
         books.remove(searchByID(ID));
     }
 
-    public void removeByReleaseYears(String releaseYear) {
+    public void removeByReleaseYears(String releaseYear) throws NoSuchBookException {
         books.remove(searchByReleaseYears(releaseYear));
     }
 
-    public void removeByName(String name) {
+    public void removeByName(String name) throws NoSuchBookException {
         books.remove(searchByName(name));
     }
 
-    public void removeByAuthor(String author) {
+    public void removeByAuthor(String author) throws NoSuchBookException {
         books.remove(searchByAuthor(author));
     }
 
@@ -94,11 +95,11 @@ public class Catalogue {
         while (true) {
             System.out.println(
                 "Нажмите на нужную клавишу для работы с каталогом:\n"
-                + "1 - добавить книгу\n"
-                + "2 - найти книгу\n"
-                + "3 - удалить книгу\n"
-                + "4 - список книг в каталоге\n"
-                + "0 - выход из меню\n\n"
+                    + "1 - добавить книгу\n"
+                    + "2 - найти книгу\n"
+                    + "3 - удалить книгу\n"
+                    + "4 - список книг в каталоге\n"
+                    + "0 - выход из меню\n\n"
             );
             switch (in.next()) {
                 case "1" : {
@@ -125,35 +126,51 @@ public class Catalogue {
                 case "2" : {
                     System.out.println(
                         "Для поиска книги по ID нажите 1\n"
-                        + "по имени - 2\n"
-                        + "по автору - 3\n"
-                        + "по году издания - 4\n"
-                        + "для выхода из режима \"поиск\" нажмите 0\n"
+                            + "по имени - 2\n"
+                            + "по автору - 3\n"
+                            + "по году издания - 4\n"
+                            + "для выхода из режима \"поиск\" нажмите 0\n"
                     );
                     boolean endSearching = false;
                     while (!endSearching) {
                         switch (in.next()) {
                             case "1": {
                                 System.out.println("ID = ");
-                                System.out.println(searchByID(in.next()).toString());
+                                try {
+                                    System.out.println(searchByID(in.next()).toString());
+                                } catch (NoSuchBookException e) {
+                                    e.printStackTrace();
+                                }
                                 endSearching = true;
                                 break;
                             }
                             case "2" : {
                                 System.out.println("Имя = ");
-                                System.out.println(searchByName(in.next()).toString());
+                                try {
+                                    System.out.println(searchByName(in.next()).toString());
+                                } catch (NoSuchBookException e) {
+                                    e.printStackTrace();
+                                }
                                 endSearching = true;
                                 break;
                             }
                             case "3" : {
                                 System.out.println("Автор = ");
-                                System.out.println(searchByAuthor(in.next()));
+                                try {
+                                    System.out.println(searchByAuthor(in.next()));
+                                } catch (NoSuchBookException e) {
+                                    e.printStackTrace();
+                                }
                                 endSearching = true;
                                 break;
                             }
                             case "4" : {
                                 System.out.println("Год издания = ");
-                                System.out.println(searchByReleaseYears(in.next()));
+                                try {
+                                    System.out.println(searchByReleaseYears(in.next()));
+                                } catch (NoSuchBookException e) {
+                                    e.printStackTrace();
+                                }
                                 endSearching = true;
                                 break;
                             }
@@ -182,25 +199,41 @@ public class Catalogue {
                         switch (in.next()) {
                             case "1": {
                                 System.out.println("ID = ");
-                                removeByID(in.next());
+                                try {
+                                    removeByID(in.next());
+                                } catch (NoSuchBookException e) {
+                                    e.printStackTrace();
+                                }
                                 endRemoving = true;
                                 break;
                             }
                             case "2" : {
                                 System.out.println("Имя = ");
-                                removeByName(in.next());
+                                try {
+                                    removeByName(in.next());
+                                } catch (NoSuchBookException e) {
+                                    e.printStackTrace();
+                                }
                                 endRemoving = true;
                                 break;
                             }
                             case "3" : {
                                 System.out.println("Автор = ");
-                                removeByAuthor(in.next());
+                                try {
+                                    removeByAuthor(in.next());
+                                } catch (NoSuchBookException e) {
+                                    e.printStackTrace();
+                                }
                                 endRemoving = true;
                                 break;
                             }
                             case "4" : {
                                 System.out.println("Год издания = ");
-                                removeByReleaseYears(in.next());
+                                try {
+                                    removeByReleaseYears(in.next());
+                                } catch (NoSuchBookException e) {
+                                    e.printStackTrace();
+                                }
                                 endRemoving = true;
                                 break;
                             }
@@ -230,22 +263,20 @@ public class Catalogue {
     }
 
     public static void main(String[] args) {
-        Catalogue catalogue = new Catalogue(
-            List.of(
-                new Book(
-                    "36546456",
-                    "Pushkin",
-                    "Onegin",
-                    "32443"
-                ),
-                new Book(
-                    "87654345678",
-                    "Gogol",
-                    "Bulba",
-                    "6543456"
-                )
-            )
+        Book book1 = new Book(
+            "36546456",
+            "Pushkin",
+            "Onegin",
+            "32443"
         );
+        Book book2 = new Book(
+            "87654345678",
+            "Gogol",
+            "Bulba",
+            "6543456"
+        );
+        Catalogue catalogue = new Catalogue(book1);
+        catalogue.add(book2);
         catalogue.menu();
     }
 

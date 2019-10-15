@@ -1,6 +1,6 @@
 package lab1.task3;
 
-public class NoSuchBookException extends RuntimeException {
+public class NoSuchBookException extends Exception {
 
     public NoSuchBookException(String message) {
         super(message);

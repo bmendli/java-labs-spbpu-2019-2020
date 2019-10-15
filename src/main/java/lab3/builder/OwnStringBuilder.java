@@ -15,7 +15,7 @@ import lab3.methods.Reverse;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public final class OwnStringBuilder implements Comparable<OwnStringBuilder>, CharSequence {
+public final class OwnStringBuilder implements CharSequence {
 
     private StringBuilder stringBuilder;
     private Deque<AbstractMethodsOwnStringBuilder> executedMethods;
@@ -157,11 +157,6 @@ public final class OwnStringBuilder implements Comparable<OwnStringBuilder>, Cha
 
     public int codePointCount(int beginIndex, int endIndex) {
         return stringBuilder.codePointCount(beginIndex, endIndex);
-    }
-
-    @Override
-    public int compareTo(OwnStringBuilder o) {
-        return stringBuilder.compareTo(o.stringBuilder);
     }
 
     public OwnStringBuilder delete(int start, int end) {

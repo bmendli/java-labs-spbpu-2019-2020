@@ -24,7 +24,6 @@ public class XMLFileParser {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
             Document document = documentBuilder.parse(file);
-//            document.getDoctype().normalize();
             NodeList nodeList = document.getElementsByTagName("transaction");
             List<Transaction> transactions = new ArrayList<>();
 
