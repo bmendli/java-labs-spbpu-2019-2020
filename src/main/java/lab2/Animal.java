@@ -8,6 +8,7 @@ public abstract class Animal implements Comparable<Animal> {
     private int weight;
     private int ID;
     private int foodPerKg;
+    private int foodAmount;
 
     public Animal(FoodType foodType, String name, int weight, int foodPerKg) {
         this.foodType = foodType;
@@ -15,6 +16,7 @@ public abstract class Animal implements Comparable<Animal> {
         this.weight = weight;
         this.ID = 100000 + countAnimals++;
         this.foodPerKg = foodPerKg;
+        this.foodAmount = foodPerKg * weight;
     }
 
     public Animal(FoodType foodType, String name, int weight, int ID, int foodPerKg) {
