@@ -7,7 +7,7 @@ public abstract class AbstractMethodsOwnStringBuilder {
     protected StringBuilder stringBuilder;
     private boolean isExecute;
 
-    protected AbstractMethodsOwnStringBuilder(StringBuilder stringBuilder) {
+    AbstractMethodsOwnStringBuilder(StringBuilder stringBuilder) {
         if (stringBuilder == null) {
             throw new NullPointerException("string builder is null");
         }
@@ -15,13 +15,13 @@ public abstract class AbstractMethodsOwnStringBuilder {
         isExecute = false;
     }
 
-    public void execute() {
+    public void execute() throws ExecuteException {
         if (isExecute) {
             throw new ExecuteException("method is executed");
         }
     }
 
-    public void undo() {
+    public void undo() throws ExecuteException {
         if (!isExecute) {
             throw new ExecuteException("method not executed");
         }
@@ -31,7 +31,7 @@ public abstract class AbstractMethodsOwnStringBuilder {
         isExecute = true;
     }
 
-    protected void setStatusIsUnExecute() {
+    void setStatusIsUnExecute() {
         isExecute = false;
     }
 }

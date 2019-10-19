@@ -1,5 +1,7 @@
 package lab3.methods;
 
+import lab3.ExecuteException;
+
 public class InsertCharArray extends AbstractInsert {
 
     private final int index;
@@ -12,7 +14,7 @@ public class InsertCharArray extends AbstractInsert {
     }
 
     @Override
-    public void execute() {
+    public void execute() throws ExecuteException {
         super.execute();
         stringBuilder.insert(index, str, offset, len);
         super.setStatusIsExecute();

@@ -1,5 +1,7 @@
 package lab3.methods;
 
+import lab3.ExecuteException;
+
 public class AppendCharSequence extends AbstractAppend {
 
     private final CharSequence charSequence;
@@ -17,7 +19,7 @@ public class AppendCharSequence extends AbstractAppend {
     }
 
     @Override
-    public void execute() {
+    public void execute() throws ExecuteException {
         super.execute();
         stringBuilder.append(charSequence, start, end);
         super.setStatusIsExecute();

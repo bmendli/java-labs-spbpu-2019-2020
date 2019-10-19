@@ -1,5 +1,7 @@
 package lab3.methods;
 
+import lab3.ExecuteException;
+
 public class AppendCharArray extends AbstractAppend {
 
     private final char[] str;
@@ -14,7 +16,7 @@ public class AppendCharArray extends AbstractAppend {
     }
 
     @Override
-    public void execute() {
+    public void execute() throws ExecuteException {
         super.execute();
         stringBuilder.append(str, offset, len);
         super.setStatusIsExecute();

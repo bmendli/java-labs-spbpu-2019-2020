@@ -1,5 +1,7 @@
 package lab3.methods;
 
+import lab3.ExecuteException;
+
 public class Insert<E> extends AbstractInsert {
 
     private final E insertSequence;
@@ -10,7 +12,7 @@ public class Insert<E> extends AbstractInsert {
     }
 
     @Override
-    public void execute() {
+    public void execute() throws ExecuteException {
         super.execute();
         stringBuilder.insert(offset, insertSequence);
         super.setStatusIsExecute();

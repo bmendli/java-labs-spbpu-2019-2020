@@ -1,5 +1,7 @@
 package lab3.methods;
 
+import lab3.ExecuteException;
+
 public class AppendCodePoint extends AbstractAppend {
 
     private final int codePoint;
@@ -10,7 +12,7 @@ public class AppendCodePoint extends AbstractAppend {
     }
 
     @Override
-    public void execute() {
+    public void execute() throws ExecuteException {
         super.execute();
         stringBuilder.appendCodePoint(codePoint);
         super.setStatusIsExecute();

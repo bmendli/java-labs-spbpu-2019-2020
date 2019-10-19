@@ -1,5 +1,7 @@
 package lab3.methods;
 
+import lab3.ExecuteException;
+
 public class Replace extends AbstractMethodsOwnStringBuilder {
 
     private final int start;
@@ -18,7 +20,7 @@ public class Replace extends AbstractMethodsOwnStringBuilder {
     }
 
     @Override
-    public void execute() {
+    public void execute() throws ExecuteException {
         super.execute();
         this.replaceStr = stringBuilder.substring(start, end);
         stringBuilder.replace(start, end, str);
@@ -26,7 +28,7 @@ public class Replace extends AbstractMethodsOwnStringBuilder {
     }
 
     @Override
-    public void undo() {
+    public void undo() throws ExecuteException {
         super.undo();
         stringBuilder.replace(start, start + str.length(), replaceStr);
         super.setStatusIsUnExecute();

@@ -1,5 +1,6 @@
 package lab3.builder;
 
+import lab3.ExecuteException;
 import lab3.methods.AbstractMethodsOwnStringBuilder;
 import lab3.methods.Append;
 import lab3.methods.AppendCharArray;
@@ -40,101 +41,101 @@ public final class OwnStringBuilder implements CharSequence {
         stringBuilder = new StringBuilder(str);
     }
 
-    public OwnStringBuilder append(boolean b) {
+    public OwnStringBuilder append(boolean b) throws ExecuteException {
         Append<Boolean> method = new Append<>(stringBuilder, b);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder append(char c) {
+    public OwnStringBuilder append(char c) throws ExecuteException {
         Append<Character> method = new Append<>(stringBuilder, c);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder append(char[] str) {
+    public OwnStringBuilder append(char[] str) throws ExecuteException {
         AppendCharArray method = new AppendCharArray(stringBuilder, str, 0, str.length);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder append(char[] str, int offset, int len) {
+    public OwnStringBuilder append(char[] str, int offset, int len) throws ExecuteException {
         AppendCharArray method = new AppendCharArray(stringBuilder, str, offset, len);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder append(CharSequence s) {
+    public OwnStringBuilder append(CharSequence s) throws ExecuteException {
         AppendCharSequence method = new AppendCharSequence(stringBuilder, s, 0, s.length());
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder append(CharSequence s, int start, int end) {
+    public OwnStringBuilder append(CharSequence s, int start, int end) throws ExecuteException {
         AppendCharSequence method = new AppendCharSequence(stringBuilder, s, start, end);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder append(double d) {
+    public OwnStringBuilder append(double d) throws ExecuteException {
         Append<Double> method = new Append<>(stringBuilder, d);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder append(float f) {
+    public OwnStringBuilder append(float f) throws ExecuteException {
         Append<Float> method = new Append<>(stringBuilder, f);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder append(int i) {
+    public OwnStringBuilder append(int i) throws ExecuteException {
         Append<Integer> method = new Append<>(stringBuilder, i);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder append(long lng) {
+    public OwnStringBuilder append(long lng) throws ExecuteException {
         Append<Long> method = new Append<>(stringBuilder, lng);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder append(Object obj) {
+    public OwnStringBuilder append(Object obj) throws ExecuteException {
         Append<Object> method = new Append<>(stringBuilder, obj);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder append(String str) {
+    public OwnStringBuilder append(String str) throws ExecuteException {
         Append<String> method = new Append<>(stringBuilder, str);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder append(StringBuffer sb) {
+    public OwnStringBuilder append(StringBuffer sb) throws ExecuteException {
         Append<StringBuffer> method = new Append<>(stringBuilder, sb);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder appendCodePoint(int codePoint) {
+    public OwnStringBuilder appendCodePoint(int codePoint) throws ExecuteException {
         AppendCodePoint method = new AppendCodePoint(stringBuilder, codePoint);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
@@ -159,17 +160,17 @@ public final class OwnStringBuilder implements CharSequence {
         return stringBuilder.codePointCount(beginIndex, endIndex);
     }
 
-    public OwnStringBuilder delete(int start, int end) {
+    public OwnStringBuilder delete(int start, int end) throws ExecuteException {
         Delete method = new Delete(stringBuilder, start, end);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder deleteCharAt(int index) {
+    public OwnStringBuilder deleteCharAt(int index) throws ExecuteException {
         Delete method = new Delete(stringBuilder, index, index + 1);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
@@ -189,87 +190,87 @@ public final class OwnStringBuilder implements CharSequence {
         return stringBuilder.indexOf(str, fromIndex);
     }
 
-    public OwnStringBuilder insert(int offset, boolean b) {
+    public OwnStringBuilder insert(int offset, boolean b) throws ExecuteException {
         Insert<Boolean> method = new Insert<>(stringBuilder, offset, b);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder insert(int offset, char c) {
+    public OwnStringBuilder insert(int offset, char c) throws ExecuteException {
         Insert<Character> method = new Insert<>(stringBuilder, offset, c);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder insert(int offset, char[] str) {
+    public OwnStringBuilder insert(int offset, char[] str) throws ExecuteException {
         InsertCharArray method = new InsertCharArray(stringBuilder, offset, str, 0, str.length);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder insert(int index, char[] str, int offset, int len) {
+    public OwnStringBuilder insert(int index, char[] str, int offset, int len) throws ExecuteException {
         InsertCharArray method = new InsertCharArray(stringBuilder, index, str, offset, len);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder insert(int dstOffset, CharSequence s) {
+    public OwnStringBuilder insert(int dstOffset, CharSequence s) throws ExecuteException {
         InsertCharSequence method = new InsertCharSequence(stringBuilder, dstOffset, s, 0, s.length());
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder insert(int dstOffset, CharSequence s, int start, int end) {
+    public OwnStringBuilder insert(int dstOffset, CharSequence s, int start, int end) throws ExecuteException {
         InsertCharSequence method = new InsertCharSequence(stringBuilder, dstOffset, s, start, end);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder insert(int offset, double d) {
+    public OwnStringBuilder insert(int offset, double d) throws ExecuteException {
         Insert<Double> method = new Insert<>(stringBuilder, offset, d);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder insert(int offset, float f) {
+    public OwnStringBuilder insert(int offset, float f) throws ExecuteException {
         Insert<Float> method = new Insert<>(stringBuilder, offset, f);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder insert(int offset, int i) {
+    public OwnStringBuilder insert(int offset, int i) throws ExecuteException {
         Insert<Integer> method = new Insert<>(stringBuilder, offset, i);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder insert(int offset, long l) {
+    public OwnStringBuilder insert(int offset, long l) throws ExecuteException {
         Insert<Long> method = new Insert<>(stringBuilder, offset, l);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder insert(int offset, Object obj) {
+    public OwnStringBuilder insert(int offset, Object obj) throws ExecuteException {
         Insert<Object> method = new Insert<>(stringBuilder, offset, obj);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder insert(int offset, String str) {
+    public OwnStringBuilder insert(int offset, String str) throws ExecuteException {
         Insert<String> method = new Insert<>(stringBuilder, offset, str);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
@@ -290,17 +291,17 @@ public final class OwnStringBuilder implements CharSequence {
         return stringBuilder.offsetByCodePoints(index, codePointOffset);
     }
 
-    public OwnStringBuilder replace(int start, int end, String str) {
+    public OwnStringBuilder replace(int start, int end, String str) throws ExecuteException {
         Replace method = new Replace(stringBuilder, start, end, str);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
-    public OwnStringBuilder reverse() {
+    public OwnStringBuilder reverse() throws ExecuteException {
         Reverse method = new Reverse(stringBuilder);
         method.execute();
-        executedMethods.add(method);
+        executedMethods.push(method);
         return this;
     }
 
@@ -334,11 +335,16 @@ public final class OwnStringBuilder implements CharSequence {
         stringBuilder.trimToSize();
     }
 
-    public void undo() {
+    public void undo() throws Exception {
         if (executedMethods.isEmpty()) {
-            throw new NullPointerException("No methods were called");
+            throw new Exception("No methods were called");
         }
         AbstractMethodsOwnStringBuilder amosb = executedMethods.pop();
         amosb.undo();
+    }
+
+    public void clear() {
+        executedMethods.clear();
+        stringBuilder.delete(0, stringBuilder.length());
     }
 }

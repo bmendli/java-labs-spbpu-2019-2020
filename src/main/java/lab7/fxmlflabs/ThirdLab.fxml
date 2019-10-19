@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab7.controllers.ThirdLabController">
+    <GridPane prefHeight="800.0" prefWidth="1280.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="5.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="8.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="5.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" percentHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" percentHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <TextArea fx:id="ownStringBuilderText" prefHeight="120.0" prefWidth="341.0" GridPane.columnIndex="1" GridPane.columnSpan="10" GridPane.rowIndex="2">
+            <font>
+                <Font name="Verdana Bold" size="20.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="SE_RESIZE" />
+            </cursor>
+        </TextArea>
+        <Label prefHeight="35.0" prefWidth="270.0" text="OwnStringBuilder" GridPane.columnIndex="4" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <font>
+                <Font name="Sitka Text" size="30.0" />
+            </font>
+        </Label>
+        <Label text="Append" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+            <font>
+                <Font name="Yu Gothic UI Semibold" size="25.0" />
+            </font>
+        </Label>
+        <Label layoutX="97.0" layoutY="332.0" text="Delete" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4">
+            <font>
+                <Font name="Yu Gothic UI Semibold" size="25.0" />
+            </font>
+        </Label>
+        <Label layoutX="74.0" layoutY="452.0" text="Replace" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5">
+            <font>
+                <Font name="Yu Gothic UI Semibold" size="25.0" />
+            </font>
+        </Label>
+        <Label layoutX="74.0" layoutY="452.0" text="Insert" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="6">
+            <font>
+                <Font name="Yu Gothic UI Semibold" size="25.0" />
+            </font>
+        </Label>
+        <Button mnemonicParsing="false" onAction="#onReverseButtonClicked" prefHeight="70.0" prefWidth="167.0" text="Reverse" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+            <font>
+                <Font name="Webdings" size="30.0" />
+            </font>
+        </Button>
+        <Button mnemonicParsing="false" onAction="#onClearButtonClicked" prefHeight="70.0" prefWidth="167.0" text="Clear" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+            <font>
+                <Font name="Webdings" size="30.0" />
+            </font>
+        </Button>
+        <Button mnemonicParsing="false" onAction="#onUndoButtonClicked" prefHeight="70.0" prefWidth="167.0" text="Undo" GridPane.columnIndex="8" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+            <font>
+                <Font name="Webdings" size="30.0" />
+            </font>
+        </Button>
+        <Button layoutX="93.0" layoutY="701.0" mnemonicParsing="false" onAction="#onSubmitAppendButtonClicked" prefHeight="60.0" prefWidth="161.0" text="Submit append" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+            <font>
+                <Font name="Webdings" size="20.0" />
+            </font>
+        </Button>
+        <Button mnemonicParsing="false" onAction="#onSubmitDeleteButtonClicked" prefHeight="60.0" prefWidth="161.0" text="Submit delete" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+            <font>
+                <Font name="Webdings" size="20.0" />
+            </font>
+        </Button>
+        <Button mnemonicParsing="false" onAction="#onSubmitReplaceButtonClicked" prefHeight="60.0" prefWidth="161.0" text="Submit replace" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+            <font>
+                <Font name="Webdings" size="20.0" />
+            </font>
+        </Button>
+        <Button mnemonicParsing="false" onAction="#onSubmitInsertButtonClicked" prefHeight="60.0" prefWidth="161.0" text="Submit insert" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+            <font>
+                <Font name="Webdings" size="20.0" />
+            </font>
+        </Button>
+        <TextField fx:id="appendText" GridPane.columnIndex="3" GridPane.columnSpan="5" GridPane.rowIndex="3" />
+        <TextField fx:id="startDeleteText" layoutX="210.0" layoutY="292.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+        <TextField fx:id="startReplaceText" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+        <TextField fx:id="offsetInsertIndex" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+        <TextField fx:id="endDeleteText" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+        <TextField fx:id="endReplaceIndex" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+        <TextField fx:id="strInsertText" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+        <Label text="start" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+            <font>
+                <Font name="Times New Roman" size="30.0" />
+            </font>
+        </Label>
+        <Label text="start" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+            <font>
+                <Font name="Times New Roman" size="30.0" />
+            </font>
+        </Label>
+        <Label text="offset" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+            <font>
+                <Font name="Times New Roman" size="30.0" />
+            </font>
+        </Label>
+        <Label text="end" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+            <font>
+                <Font name="Times New Roman" size="30.0" />
+            </font>
+        </Label>
+        <Label text="end" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+            <font>
+                <Font name="Times New Roman" size="30.0" />
+            </font>
+        </Label>
+        <Label text="str" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+            <font>
+                <Font name="Times New Roman" size="30.0" />
+            </font>
+        </Label>
+        <Label text="str" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+            <font>
+                <Font name="Times New Roman" size="30.0" />
+            </font>
+        </Label>
+        <TextField fx:id="strReplaceText" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+    </GridPane>
+</AnchorPane>
