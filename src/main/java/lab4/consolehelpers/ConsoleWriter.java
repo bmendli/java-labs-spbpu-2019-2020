@@ -1,5 +1,6 @@
 package lab4.consolehelpers;
 
+import javafx.scene.control.TextArea;
 import lab4.CommandLine;
 
 public class ConsoleWriter {
@@ -27,20 +28,26 @@ public class ConsoleWriter {
     private static final String INFO_CAT = CommandLine.COMMAND_CAT
         + " <file_name> - content output in the file";
 
+    private TextArea out;
+
+    public ConsoleWriter(TextArea out) {
+        this.out = out;
+    }
+
     public void print(String s) {
-        System.out.print(s);
+        out.setText(out.getText() + "\n" + s);
     }
 
     public void println(String s) {
-        System.out.println(s);
+        out.setText(out.getText() + "\n" + s + "\n");
     }
 
     public void println() {
-        System.out.println();
+        out.setText(out.getText() + "\n");
     }
 
     public void printlnHelp() {
-        System.out.println(
+        println(
             INFO_Q + "\n"
             + INFO_LS + "\n"
             + INFO_PWD + "\n"
@@ -55,46 +62,47 @@ public class ConsoleWriter {
         );
     }
 
-    public void printlnInfo(String command) {
+    public void printlnInfo(String command) throws Exception {
         switch (command) {
             case CommandLine.COMMAND_Q : {
-                System.out.println(INFO_Q);
+                println(INFO_Q);
                 break;
             }
             case CommandLine.COMMAND_LS : {
-                System.out.println(INFO_LS);
+                println(INFO_LS);
                 break;
             }
             case CommandLine.COMMAND_PWD : {
-                System.out.println(INFO_PWD);
+                println(INFO_PWD);
                 break;
             }
             case CommandLine.COMMAND_CD : {
-                System.out.println(INFO_CD);
+                println(INFO_CD);
                 break;
             }
             case CommandLine.COMMAND_MKDIR : {
-                System.out.println(INFO_MKDIR);
+                println(INFO_MKDIR);
                 break;
             }
             case CommandLine.COMMAND_RM : {
-                System.out.println(INFO_RM);
+                println(INFO_RM);
                 break;
             }
             case CommandLine.COMMAND_OPEN : {
-                System.out.println(INFO_OPEN);
+                println(INFO_OPEN);
                 break;
             }
             case CommandLine.COMMAND_TOUCH : {
-                System.out.println(INFO_TOUCH);
+                println(INFO_TOUCH);
+
                 break;
             }
             case CommandLine.COMMAND_CAT : {
-                System.out.println(INFO_CAT);
+                println(INFO_CAT);
                 break;
             }
             default : {
-                println("Incorrect command");
+                throw new Exception("Incorrect command");
             }
         }
     }

@@ -1,6 +1,6 @@
 package lab4.filehelpers;
 
-import lab4.consolehelpers.ConsoleReader;
+import javafx.scene.control.Label;
 import lab4.consolehelpers.ConsoleWriter;
 
 import java.io.BufferedReader;
@@ -22,12 +22,19 @@ public class FileWorker implements AutoCloseable {
     private static final String ADD = "a";
     private static final String QUIT = "q:";
 
-    private Path path;
+    private static Path path;
     private ConsoleWriter consoleWriter;
+    private Label currentDirectory;
+    private String content;
 
-    public FileWorker(ConsoleWriter consoleWriter) {
-        this.path = Paths.get("");
+    public FileWorker(
+        ConsoleWriter consoleWriter,
+        Label currentDirectory) {
+
+        path = Paths.get("");
         this.consoleWriter = consoleWriter;
+        this.currentDirectory = currentDirectory;
+        this.currentDirectory.setText(path.toString());
     }
 
     public void pathToCurrentDir() {
@@ -68,92 +75,69 @@ public class FileWorker implements AutoCloseable {
             throw new FileNotFoundException("it isn't directory");
         }
         path = newPath;
+        currentDirectory.setText(path.toString());
     }
 
     public void makeDirectory(String name) throws IOException {
-        Files.createDirectories(Paths.get(name));
-    }
-
-    public void createFile(String name) throws IOException {
-        Files.createFile(Paths.get(name));
-    }
-
-    public void showContentInFile(File name) {
-        if (name.isFile()) {
-            try (BufferedReader br = new BufferedReader(new FileReader(name))) {
-                String line;
-                while ((line = br.readLine()) != null) {
-                    consoleWriter.println(line);
-                }
-            } catch (IOException e) {
-                consoleWriter.println(e.getMessage());
-            }
+        File file = new File(name);
+        if (file.isAbsolute()) {
+            Files.createDirectories(Paths.get(name));
+        } else {
+            Files.createDirectories(Paths.get(path.toString() + File.separator + name));
         }
     }
 
-    public void openFile(File name, ConsoleReader consoleReader) {
+    public void createFile(String name) throws IOException {
+        File file = new File(name);
+        if (file.isAbsolute()) {
+            Files.createFile(Paths.get(name));
+        } else {
+            Files.createFile(Paths.get(path.toString() + File.separator + name));
+        }
+    }
+
+    public String showContentInFile(File name) throws Exception {
+        if (!name.isAbsolute()) {
+            name = Paths.get(path.toString() + File.separator + name).toFile();
+        }
         if (name.isFile()) {
             try (BufferedReader br = new BufferedReader(new FileReader(name))) {
                 String line;
+                StringBuilder stringBuilder = new StringBuilder();
                 while ((line = br.readLine()) != null) {
-                    consoleWriter.println(line);
+                    stringBuilder.append(line).append("\n");
                 }
-                FileWriter fileWriter;
-                boolean endOpen = false;
-                consoleWriter.println("for quit write q:");
-                String newLine = consoleReader.nextLine();
-                consoleWriter.println("do you want to change file? y/n");
-                while (!endOpen) {
-                    switch (consoleReader.nextLine()) {
-                        case YES: {
-                            consoleWriter.println("for quit write q:");
-                            consoleWriter.println("rewrite or append? r/a");
-                            boolean endWorkingAppRew = false;
-                            while (!endWorkingAppRew) {
-                                switch (consoleReader.nextLine()) {
-                                    case REWRITE: {
-                                        fileWriter = new FileWriter(name, false);
-                                        fileWriter.write(newLine);
-                                        endWorkingAppRew = true;
-                                        fileWriter.close();
-                                        break;
-                                    }
-                                    case ADD: {
-                                        fileWriter = new FileWriter(name, true);
-                                        fileWriter.write(newLine);
-                                        endWorkingAppRew = true;
-                                        fileWriter.close();
-                                        break;
-                                    }
-                                    case QUIT: {
-                                        endWorkingAppRew = true;
-                                        break;
-                                    }
-                                    default : {
-                                        consoleWriter.println("incorrect command");
-                                    }
-                                }
-                            }
-                            endOpen = true;
-                            break;
-                        }
-                        case NO :
-                        case QUIT : {
-                            endOpen = true;
-                            break;
-                        }
-                        default : {
-                            consoleWriter.println("incorrect command");
-                        }
-                    }
-                }
+                return stringBuilder.toString();
             } catch (IOException e) {
-                consoleWriter.println(e.getMessage());
+                throw new IOException("Can not show content in file");
             }
+        }
+        throw new Exception("No such file");
+    }
+
+    public String openFile(File name) throws Exception {
+        if (!name.isAbsolute()) {
+            path = Paths.get(path.toString() + File.separator + name);
+        }
+        if (path.toFile().isFile()) {
+            try (BufferedReader br = new BufferedReader(new FileReader(path.toFile()))) {
+                String line;
+                StringBuilder stringBuilder = new StringBuilder();
+                while ((line = br.readLine()) != null) {
+                    stringBuilder.append(line).append("\n");
+                }
+                content = stringBuilder.toString();
+                return content;
+            }
+        } else {
+            throw new Exception("No such file that open");
         }
     }
 
     public void deleteFile(File file) throws IOException {
+        if (!file.isAbsolute()) {
+            file = Paths.get(path.toString() + File.separator + file).toFile();
+        }
         if (file.isDirectory()) {
             File[] files = file.listFiles();
             if (files != null) {
@@ -163,6 +147,14 @@ public class FileWorker implements AutoCloseable {
             }
         }
         Files.delete(file.toPath());
+    }
+
+    public void addToFile(String input) {
+        try (FileWriter fileWriter = new FileWriter(path.toFile(),false)){
+            fileWriter.write(content + input);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

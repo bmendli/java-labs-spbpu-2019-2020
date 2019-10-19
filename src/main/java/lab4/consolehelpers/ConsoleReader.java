@@ -1,25 +1,23 @@
 package lab4.consolehelpers;
 
-import java.util.Scanner;
+import javafx.scene.control.TextField;
 
-public class ConsoleReader implements AutoCloseable{
+public class ConsoleReader implements AutoCloseable {
 
-    private Scanner in;
+    private TextField in;
 
-    public ConsoleReader() {
-        in = new Scanner(System.in);
-    }
-
-    public String nextLine() {
-        return in.nextLine();
+    public ConsoleReader(TextField in) {
+        this.in = in;
     }
 
     public String next() {
-        return in.next();
+        String result =  in.getText();
+        in.clear();
+        return result;
     }
 
     @Override
     public void close() throws Exception {
-        in.close();
+
     }
 }
