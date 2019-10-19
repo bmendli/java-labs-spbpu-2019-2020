@@ -8,7 +8,7 @@ import java.util.Random;
 public class Account {
 
     private static Random random = new Random();
-    private static int counterAccounts = 0;
+    public static int counterAccounts = 0;
     private final int ID;
     private int cash;
 

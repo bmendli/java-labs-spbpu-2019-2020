@@ -5,7 +5,6 @@ import lab6.base.Transaction;
 import lab6.xmlfworkers.XMLFileCreator;
 import lab6.xmlfworkers.XMLFileParser;
 
-import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,19 +21,14 @@ public class MainController {
     private static OwnLogger logger;
     private static ConcurrentMap<Account, Queue<Transaction>> accountTransactions;
     static List<Queue<Transaction>> tasks;
+    private boolean isExecute;
 
-    public static void main(String[] args) {
-        XMLFileCreator xmlFileCreator = new XMLFileCreator();
-        xmlFileCreator.createXMLFile();
-        RegistrationAccounts.registration();
-        XMLFileParser xmlFileParser = new XMLFileParser();
-        transactions = xmlFileParser.parse();
-        logger = new OwnLogger();
-        accountTransactions = new ConcurrentHashMap<>();
-        executeTasks();
+    public MainController(OwnLogger logger) {
+        MainController.logger = logger;
+        isExecute = false;
     }
 
-    private synchronized static void executeTasks() {
+    private synchronized static void executeTasks() throws InterruptedException {
         transactions.forEach(
             transaction -> accountTransactions.compute(
                 RegistrationAccounts.getAccount(transaction.getFromID().getID()),
@@ -53,11 +47,22 @@ public class MainController {
         forkJoinPool.invoke(new TransactionHandler(0, logger, Logger.getLogger("Transactions")));
         forkJoinPool.awaitQuiescence(1, TimeUnit.MINUTES);
         forkJoinPool.shutdown();
-        try {
-            Thread.sleep(1000);
-            logger.close();
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
+        Thread.sleep(1000);
+
+    }
+
+    public boolean isExecute() {
+        return isExecute;
+    }
+
+    public void executeRandomFile() throws InterruptedException {
+        Account.counterAccounts = 0;
+        XMLFileCreator xmlFileCreator = new XMLFileCreator();
+        xmlFileCreator.createXMLFile();
+        RegistrationAccounts.registration();
+        XMLFileParser xmlFileParser = new XMLFileParser();
+        transactions = xmlFileParser.parse();
+        accountTransactions = new ConcurrentHashMap<>();
+        executeTasks();
     }
 }
