@@ -1,7 +1,6 @@
 package lab5;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.nio.file.Files;
@@ -19,7 +18,9 @@ public class FilePropertiesWorker {
     private boolean isEndLastLineOfBackSlash;
     private boolean isParse;
 
-    public FilePropertiesWorker(Path file) throws FileNotFoundException{
+    public FilePropertiesWorker() {}
+
+    public FilePropertiesWorker(Path file) throws FileNotFoundException {
         if (!Files.exists(file)) {
             throw new FileNotFoundException("Incorrect file");
         }
@@ -37,18 +38,14 @@ public class FilePropertiesWorker {
         this.isEndLastLineOfBackSlash = false;
     }
 
-    public void parse() {
+    public void parse() throws FileNotFoundException {
         if (isParse) {
             System.out.println("file " + file.toString() + " is parse yet");
         }
 
         properties = new HashMap<>();
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file.toFile()));
-            br.lines().forEach(this::parseLine);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        BufferedReader br = new BufferedReader(new FileReader(file.toFile()));
+        br.lines().forEach(this::parseLine);
     }
 
     private void parseLine(String line) {
@@ -64,8 +61,7 @@ public class FilePropertiesWorker {
             if (tempLine.charAt(tempLine.length() - 1) == '\\') {
                 value += tempLine.substring(0, tempLine.length() - 1);
                 return;
-            }
-            else {
+            } else {
                 isEndLastLineOfBackSlash = false;
                 value += tempLine;
                 properties.put(key, value);
@@ -114,5 +110,9 @@ public class FilePropertiesWorker {
 
     public Map<String, String> getProperties() {
         return properties;
+    }
+
+    public void setFile(Path path) {
+        this.file = path;
     }
 }

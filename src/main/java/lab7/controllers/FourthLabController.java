@@ -62,7 +62,6 @@ public class FourthLabController implements Initializable, Alertable {
                 throw new Exception("you don't finish last action");
             }
         } catch (Exception e) {
-            e.printStackTrace();
             alert(Alert.AlertType.ERROR, "FILE ERROR", "Wrong action", e.getMessage());
         } finally {
             commandLineInput.clear();
