@@ -6,12 +6,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 
 public class UserInterface extends Application {
-
-
 
     @Override
     public void start(Stage primaryStage) {
@@ -19,7 +17,10 @@ public class UserInterface extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
             fxmlLoader.setLocation(
-                new File("D:\\Program Files (x86)\\java-labs-spbpu-2019-2020\\src\\main\\java\\lab7\\fxmlflabs\\MainMenu.fxml").toURL()
+                Paths.get(
+                    "D:", "Program Files (x86)", "java-labs-spbpu-2019-2020",
+                    "src", "main", "java", "lab7", "fxmlflabs", "MainMenu.fxml"
+                ).toFile().toURL()
             );
             TabPane tabPane = fxmlLoader.load();
             Scene scene = new Scene(tabPane, 1300, 850);
@@ -30,7 +31,6 @@ public class UserInterface extends Application {
         }
 
     }
-
 
     public static void main(String[] args) {
         launch(args);
