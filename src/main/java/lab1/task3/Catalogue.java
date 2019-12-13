@@ -1,7 +1,6 @@
 package lab1.task3;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -93,15 +92,17 @@ public class Catalogue {
 
         while (true) {
             System.out.println(
-                "Нажмите на нужную клавишу для работы с каталогом:\n"
-                + "1 - добавить книгу\n"
-                + "2 - найти книгу\n"
-                + "3 - удалить книгу\n"
-                + "4 - список книг в каталоге\n"
-                + "0 - выход из меню\n\n"
+                """
+                Нажмите на нужную клавишу для работы с каталогом:
+                1 - добавить книгу
+                2 - найти книгу
+                3 - удалить книгу
+                4 - список книг в каталоге
+                0 - выход из меню
+                """
             );
             switch (in.next()) {
-                case "1" : {
+                case "1" -> {
                     System.out.println("Введите данные книги, которую хотите добавить\n");
                     System.out.println("Имя = ");
                     String name = in.next();
@@ -120,109 +121,99 @@ public class Catalogue {
                     System.out.println();
 
                     add(new Book(ID, author, name, releaseYear));
-                    break;
                 }
-                case "2" : {
+                case "2" -> {
                     System.out.println(
-                        "Для поиска книги по ID нажите 1\n"
-                        + "по имени - 2\n"
-                        + "по автору - 3\n"
-                        + "по году издания - 4\n"
-                        + "для выхода из режима \"поиск\" нажмите 0\n"
+                        """
+                            Для поиска книги по ID нажите 1
+                            по имени - 2
+                            по автору - 3
+                            по году издания - 4
+                            для выхода из режима "поиск" нажмите 0
+                            """
                     );
                     boolean endSearching = false;
                     while (!endSearching) {
                         switch (in.next()) {
-                            case "1": {
+                            case "1" -> {
                                 System.out.println("ID = ");
                                 System.out.println(searchByID(in.next()).toString());
                                 endSearching = true;
-                                break;
                             }
-                            case "2" : {
+                            case "2" -> {
                                 System.out.println("Имя = ");
                                 System.out.println(searchByName(in.next()).toString());
                                 endSearching = true;
-                                break;
                             }
-                            case "3" : {
+                            case "3" -> {
                                 System.out.println("Автор = ");
                                 System.out.println(searchByAuthor(in.next()));
                                 endSearching = true;
-                                break;
                             }
-                            case "4" : {
+                            case "4" -> {
                                 System.out.println("Год издания = ");
                                 System.out.println(searchByReleaseYears(in.next()));
                                 endSearching = true;
-                                break;
                             }
-                            case "0" : {
+                            case "0" -> {
                                 endSearching = true;
-                                break;
                             }
-                            default : {
+                            default -> {
                                 System.out.println("Нет такой команды. Попробуйте ещё раз");
                             }
                         }
                     }
-                    break;
                 }
-                case "3" : {
+                case "3" -> {
                     System.out.println(
-                        "Для удаления книги по ID нажите 1\n"
-                            + "по имени - 2\n"
-                            + "по автору - 3\n"
-                            + "по году издания - 4\n"
-                            + "для выхода из режима \"удаление\" нажмите 0\n"
+                        """
+                            "Для удаления книги по ID нажите 1
+                             по имени - 2
+                             по автору - 3
+                             по году издания - 4
+                             для выхода из режима "удаление" нажмите 0
+                                """
                     );
 
                     boolean endRemoving = false;
                     while (!endRemoving) {
                         switch (in.next()) {
-                            case "1": {
+                            case "1" -> {
                                 System.out.println("ID = ");
                                 removeByID(in.next());
                                 endRemoving = true;
-                                break;
                             }
-                            case "2" : {
+                            case "2" -> {
                                 System.out.println("Имя = ");
                                 removeByName(in.next());
                                 endRemoving = true;
-                                break;
                             }
-                            case "3" : {
+                            case "3" -> {
                                 System.out.println("Автор = ");
                                 removeByAuthor(in.next());
                                 endRemoving = true;
-                                break;
                             }
-                            case "4" : {
+                            case "4" -> {
                                 System.out.println("Год издания = ");
                                 removeByReleaseYears(in.next());
                                 endRemoving = true;
-                                break;
                             }
-                            case "0" : {
+                            case "0" -> {
                                 endRemoving = true;
-                                break;
                             }
-                            default : {
+                            default -> {
                                 System.out.println("Нет такой команды. Попробуйте ещё раз");
                             }
                         }
                     }
-                    break;
                 }
-                case "4" : {
+                case "4" -> {
                     System.out.println(toString());
-                    break;
                 }
-                case "0" : {
+                case "0" -> {
                     System.exit(0);
                 }
-                default : {
+                default -> {
                     System.out.println("Нет такой команды. Попробуйте ещё раз");
                 }
             }
