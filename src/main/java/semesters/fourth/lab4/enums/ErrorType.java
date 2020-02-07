@@ -1,0 +1,12 @@
+package semesters.fourth.lab4.enums;
+
+public enum ErrorType {
+    INCORRECT_INPUT_DATA,
+    INCORRECT_COMMAND,
+    INCORRECT_COUNT_PARAMS,
+    INCORRECT_PRICE_FORMAT,
+    INCORRECT_PRODUCT_NAME,
+    INCORRECT_STATE,
+    DB_IS_EMPTY,
+    INPUT_ERROR,
+}

@@ -1,3 +1,3 @@
-java-labs-spbpu-2019-2020
-ветка lab1 - первая лабораторная
-lab2 - вторая и т.д.
+java-labs-spbpu-semesters-2020
+ветка semesters.third.lab1 - первая лабораторная
+semesters.third.lab2 - вторая и т.д.
