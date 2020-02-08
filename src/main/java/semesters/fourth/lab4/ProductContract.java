@@ -2,19 +2,21 @@ package semesters.fourth.lab4;
 
 public class ProductContract {
 
-    public static final String USER_NAME = "root";
+    public static final int DATABASE_VERSION = 1;
 
-    public static final String USER_PASSWORD = "korol1800";
+    public static final String USER_NAME = "u0523300_bogdanm";
 
-    public static final String CONNECTION_URL = "jdbc:mysql://localhost:3306/mysql?useUnicode=true&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true";
+    public static final String USER_PASSWORD = "bd_java_labs_spbstu_123321";
+
+    public static final String CONNECTION_URL = "jdbc:mysql://atechnologies.ru:3306/u0523300_bogdanmendli24680?useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
 
     public static final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
 
+    public static final String DATABASE_NAME = "u0523300_bogdanmendli24680";
+
+    public static final String TABLE_PRODUCT_NAME = "products";
+
     public static abstract class ProductColumns {
-
-        public static final int DATABASE_VERSION = 1;
-
-        public static final String DATABASE_NAME = "products";
 
         public static final String COLUMN_ID = "id";
 

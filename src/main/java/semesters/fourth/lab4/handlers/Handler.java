@@ -1,4 +1,4 @@
-package semesters.fourth.lab4.parsers;
+package semesters.fourth.lab4.handlers;
 
 import org.jetbrains.annotations.Nullable;
 

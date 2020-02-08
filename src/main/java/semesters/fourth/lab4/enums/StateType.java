@@ -1,6 +1,7 @@
 package semesters.fourth.lab4.enums;
 
 public enum StateType {
+    HELP,
     ADD,
     DELETE,
     UPDATE,

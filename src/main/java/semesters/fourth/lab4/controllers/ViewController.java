@@ -2,14 +2,17 @@ package semesters.fourth.lab4.controllers;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import semesters.fourth.lab4.Product;
 import semesters.fourth.lab4.enums.ErrorType;
 import semesters.fourth.lab4.enums.StateType;
 
+import java.util.List;
+
 public interface ViewController {
 
-    void readLine();
+    void receiveData();
 
-    void println(@NotNull final StateType state, @Nullable final String... data);
+    void show(@NotNull final StateType state, @Nullable final List<Product> data);
 
-    void printlnErrorMsg(@NotNull final ErrorType errorType);
+    void showErrorMsg(@NotNull final ErrorType errorType);
 }
