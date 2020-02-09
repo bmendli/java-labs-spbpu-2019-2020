@@ -1,4 +1,4 @@
-package semesters.fourth.lab4.controllers;
+package semesters.fourth.lab4.view;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
