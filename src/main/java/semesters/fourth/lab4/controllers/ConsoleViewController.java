@@ -142,9 +142,6 @@ public class ConsoleViewController implements ViewController {
             case NOT_DATA:
                 errorMsg = ERROR_NOT_DATA;
                 break;
-            case FAIL_CLOSE_CONNECTION_WITH_DB:
-                errorMsg = ERROR_CLOSE_CONNECTION_WITH_DB;
-                break;
             default:
                 errorMsg = SOMETHING_WENT_WRONG;
         }
