@@ -37,6 +37,10 @@ public class ProductDBHelper implements DBHelper {
             + " FROM " + ProductContract.TABLE_PRODUCT_NAME + " WHERE "
             + ProductContract.ProductColumns.COLUMN_TITLE + " = ?";
 
+    private static final String SELECT_FOR_CHECK_ADD = "SELECT * FROM " + ProductContract.TABLE_PRODUCT_NAME + " WHERE "
+            + ProductContract.ProductColumns.COLUMN_PRODUCT_ID + " = ? OR "
+            + ProductContract.ProductColumns.COLUMN_TITLE + " = ?";
+
     private static final String SELECT_ALL = "SELECT * FROM " + ProductContract.TABLE_PRODUCT_NAME;
 
     private static final String DELETE_PRODUCT_REQUEST = "DELETE FROM " + ProductContract.TABLE_PRODUCT_NAME + " WHERE "
@@ -83,6 +87,15 @@ public class ProductDBHelper implements DBHelper {
                     ProductContract.CONNECTION_URL,
                     ProductContract.USER_NAME,
                     ProductContract.USER_PASSWORD)) {
+                try (final PreparedStatement preparedStatement = connection.prepareStatement(SELECT_FOR_CHECK_ADD)) {
+                    preparedStatement.setInt(1, productId);
+                    preparedStatement.setString(2, productName);
+                    final ResultSet resultSet = preparedStatement.executeQuery();
+                    if (resultSet.next()) {
+                        presenter.showErrorMsg(ErrorType.SAME_TITLE_OR_ID_PRODUCT);
+                        return;
+                    }
+                }
                 try (final PreparedStatement preparedStatement = connection.prepareStatement(INSERT_REQUEST)) {
                     preparedStatement.setInt(1, productId);
                     preparedStatement.setString(2, productName);

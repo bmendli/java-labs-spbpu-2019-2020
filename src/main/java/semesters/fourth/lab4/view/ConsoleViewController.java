@@ -26,7 +26,7 @@ public class ConsoleViewController implements ViewController {
     private static final String ERROR_INPUT_DATA = "Input data is incorrect, try again.";
     private static final String ERROR_EXECUTION_FAIL = "Fail execution of program.";
     private static final String ERROR_NOT_DATA = "Doesn't exist data for this request, try again.";
-    private static final String ERROR_CLOSE_CONNECTION_WITH_DB = "Cannot close connection with data base.";
+    private static final String ERROR_SAME_NAME_OR_ID_PRODUCT = "Product with this title or id already exist.";
     private static final String SOMETHING_WENT_WRONG = "Something went wrong, try again.";
 
     private static final String ADDED_MSG = "product successfully added";
@@ -40,7 +40,7 @@ public class ConsoleViewController implements ViewController {
             + "Show all products - " + DataProductHandler.COMMAND_SHOW_ALL + "\n"
             + "Show products by price in range - " + DataProductHandler.COMMAND_FILTER_BY_PRICE + " \"start_price\" \"end_price\"\n"
             + "Show price of product - " + DataProductHandler.COMMAND_PRICE + " \"product_name\"\n"
-            + "Exit from program - " + DataProductHandler.COMMAND_EXIT + ".";
+            + "Exit from program - " + DataProductHandler.COMMAND_EXIT;
 
     @NotNull
     private final Presenter presenter;
@@ -141,6 +141,9 @@ public class ConsoleViewController implements ViewController {
                 break;
             case NOT_DATA:
                 errorMsg = ERROR_NOT_DATA;
+                break;
+            case SAME_TITLE_OR_ID_PRODUCT:
+                errorMsg = ERROR_SAME_NAME_OR_ID_PRODUCT;
                 break;
             default:
                 errorMsg = SOMETHING_WENT_WRONG;
