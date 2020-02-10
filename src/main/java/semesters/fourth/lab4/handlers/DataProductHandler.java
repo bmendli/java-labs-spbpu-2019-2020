@@ -25,7 +25,7 @@ public class DataProductHandler implements Handler {
 
     @Override
     public void handle(@Nullable final String data) {
-        if (data == null || data.isBlank()) {
+        if (data == null || data.isEmpty()) {
             presenter.showErrorMsg(ErrorType.INCORRECT_INPUT_DATA);
             return;
         }
@@ -38,7 +38,7 @@ public class DataProductHandler implements Handler {
                 if (parameters.length == 4) {
                     try {
                         final int productId = Integer.parseInt(parameters[1]);
-                        final int price = Integer.parseInt(parameters[3]);
+                        final long price = Long.parseLong(parameters[3]);
                         if (productId <= 0 || price <= 0) {
                             presenter.showErrorMsg(ErrorType.INCORRECT_INPUT_DATA);
                         } else {
@@ -54,7 +54,7 @@ public class DataProductHandler implements Handler {
             case COMMAND_UPDATE_PRICE:
                 if (parameters.length == 3) {
                     try {
-                        final int price = Integer.parseInt(parameters[2]);
+                        final long price = Long.parseLong(parameters[2]);
                         if (price <= 0) {
                             presenter.showErrorMsg(ErrorType.INCORRECT_INPUT_DATA);
                         } else {
@@ -70,10 +70,10 @@ public class DataProductHandler implements Handler {
             case COMMAND_FILTER_BY_PRICE:
                 if (parameters.length == 3) {
                     try {
-                        int from = Integer.parseInt(parameters[1]);
-                        int to = Integer.parseInt(parameters[2]);
+                        long from = Long.parseLong(parameters[1]);
+                        long to = Long.parseLong(parameters[2]);
                         if (from > to) {
-                            int temp = from;
+                            long temp = from;
                             from = to;
                             to = temp;
                         }
