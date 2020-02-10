@@ -17,10 +17,8 @@ public class UserInterface extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
             fxmlLoader.setLocation(
-                Paths.get(
-                    "D:", "Program Files (x86)", "java-labs-spbpu-2019-2020",
-                    "src", "main", "java", "semesters/third/lab7", "fxmlflabs", "MainMenu.fxml"
-                ).toFile().toURL()
+                Paths.get("src", "main", "java", "semesters", "third", "lab7", "fxmlflabs", "MainMenu.fxml"
+                ).toFile().toURI().toURL()
             );
             TabPane tabPane = fxmlLoader.load();
             Scene scene = new Scene(tabPane, 1300, 850);

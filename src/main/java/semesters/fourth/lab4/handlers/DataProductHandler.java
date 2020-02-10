@@ -3,7 +3,7 @@ package semesters.fourth.lab4.handlers;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import semesters.fourth.lab4.enums.ErrorType;
-import semesters.fourth.lab4.presenters.Presenter;
+import semesters.fourth.lab4.enums.StateType;
 
 public class DataProductHandler implements Handler {
 
@@ -16,117 +16,140 @@ public class DataProductHandler implements Handler {
     public static final String COMMAND_FILTER_BY_PRICE = "/filter_by_price";
     public static final String COMMAND_EXIT = "/exit";
 
-    @NotNull
-    private final Presenter presenter;
+    StateType state;
+    @Nullable
+    ErrorType errorType;
 
-    public DataProductHandler(@NotNull final Presenter presenter) {
-        this.presenter = presenter;
-    }
-
+    @Nullable
     @Override
-    public void handle(@Nullable final String data) {
-        if (data == null || data.isBlank()) {
-            presenter.showErrorMsg(ErrorType.INCORRECT_INPUT_DATA);
-            return;
+    public String[] handle(final String data) {
+        if (data == null || data.isEmpty()) {
+            errorType = ErrorType.INCORRECT_INPUT_DATA;
+            return null;
         }
-        handleData(data.trim().split(" "));
+        return handleData(data.trim().split(" "));
     }
 
-    private void handleData(@NotNull final String[] parameters) {
+    private String[] handleData(@NotNull final String[] parameters) {
         switch (parameters[0]) {
             case COMMAND_ADD:
                 if (parameters.length == 4) {
                     try {
                         final int productId = Integer.parseInt(parameters[1]);
-                        final int price = Integer.parseInt(parameters[3]);
+                        final long price = Long.parseLong(parameters[3]);
                         if (productId <= 0 || price <= 0) {
-                            presenter.showErrorMsg(ErrorType.INCORRECT_INPUT_DATA);
+                            errorType = ErrorType.INCORRECT_INPUT_DATA;
                         } else {
-                            presenter.addExecute(productId, parameters[2], price);
+                            errorType = null;
+                            state = StateType.ADD;
+                            return parameters;
                         }
                     } catch (final NumberFormatException nfe) {
-                        presenter.showErrorMsg(ErrorType.INCORRECT_PRICE_OR_PRICE_FORMAT);
+                        errorType = ErrorType.INCORRECT_PRICE_OR_PRICE_FORMAT;
                     }
                 } else {
-                    presenter.showErrorMsg(ErrorType.INCORRECT_COUNT_PARAMS);
+                    errorType = ErrorType.INCORRECT_COUNT_PARAMS;
                 }
-                break;
+                return null;
             case COMMAND_UPDATE_PRICE:
                 if (parameters.length == 3) {
                     try {
-                        final int price = Integer.parseInt(parameters[2]);
+                        final long price = Long.parseLong(parameters[2]);
                         if (price <= 0) {
-                            presenter.showErrorMsg(ErrorType.INCORRECT_INPUT_DATA);
+                            errorType = ErrorType.INCORRECT_INPUT_DATA;
                         } else {
-                            presenter.updatePriceExecute(parameters[1], price);
+                            errorType = null;
+                            state = StateType.UPDATE;
+                            return parameters;
                         }
                     } catch (final NumberFormatException nfe) {
-                        presenter.showErrorMsg(ErrorType.INCORRECT_PRICE_OR_PRICE_FORMAT);
+                        errorType = ErrorType.INCORRECT_PRICE_OR_PRICE_FORMAT;
                     }
                 } else {
-                    presenter.showErrorMsg(ErrorType.INCORRECT_COUNT_PARAMS);
+                    errorType = ErrorType.INCORRECT_COUNT_PARAMS;
                 }
-                break;
+                return null;
             case COMMAND_FILTER_BY_PRICE:
                 if (parameters.length == 3) {
                     try {
-                        int from = Integer.parseInt(parameters[1]);
-                        int to = Integer.parseInt(parameters[2]);
+                        long from = Long.parseLong(parameters[1]);
+                        long to = Long.parseLong(parameters[2]);
                         if (from > to) {
-                            int temp = from;
-                            from = to;
-                            to = temp;
+                            String temp = parameters[1];
+                            parameters[1] = parameters[2];
+                            parameters[2] = temp;
                         }
 
                         if (to <= 0) {
-                            presenter.showErrorMsg(ErrorType.INCORRECT_INPUT_DATA);
+                            errorType = ErrorType.INCORRECT_INPUT_DATA;
                         } else {
-                            presenter.filterByPriceExecute(from, to);
+                            errorType = null;
+                            state = StateType.SHOW_PRODUCTS_BY_PRICE_IN_RANGE;
+                            return parameters;
                         }
                     } catch (final NumberFormatException nfe) {
-                        presenter.showErrorMsg(ErrorType.INCORRECT_PRICE_OR_PRICE_FORMAT);
+                        errorType = ErrorType.INCORRECT_PRICE_OR_PRICE_FORMAT;
                     }
                 } else {
-                    presenter.showErrorMsg(ErrorType.INCORRECT_COUNT_PARAMS);
+                    errorType = ErrorType.INCORRECT_COUNT_PARAMS;
                 }
-                break;
+                return null;
             case COMMAND_DELETE:
                 if (parameters.length == 2) {
-                    presenter.deleteExecute(parameters[1]);
+                    errorType = null;
+                    state = StateType.DELETE;
+                    return parameters;
                 } else {
-                    presenter.showErrorMsg(ErrorType.INCORRECT_COUNT_PARAMS);
+                    errorType = ErrorType.INCORRECT_COUNT_PARAMS;
                 }
-                break;
+                return null;
             case COMMAND_PRICE:
                 if (parameters.length == 2) {
-                    presenter.priceExecute(parameters[1]);
+                    errorType = null;
+                    state = StateType.SHOW_PRICE;
+                    return parameters;
                 } else {
-                    presenter.showErrorMsg(ErrorType.INCORRECT_COUNT_PARAMS);
+                    errorType = ErrorType.INCORRECT_COUNT_PARAMS;
                 }
-                break;
+                return null;
             case COMMAND_SHOW_ALL:
                 if (parameters.length == 1) {
-                    presenter.showAllExecute();
+                    errorType = null;
+                    state = StateType.SHOW_ALL;
+                    return parameters;
                 } else {
-                    presenter.showErrorMsg(ErrorType.INCORRECT_COUNT_PARAMS);
+                    errorType = ErrorType.INCORRECT_COUNT_PARAMS;
                 }
-                break;
+                return null;
             case COMMAND_EXIT:
                 if (parameters.length == 1) {
-                    presenter.exitExecute();
+                    errorType = null;
+                    state = StateType.EXIT;
+                    return parameters;
                 } else {
-                    presenter.showErrorMsg(ErrorType.INCORRECT_COUNT_PARAMS);
+                    errorType = ErrorType.INCORRECT_COUNT_PARAMS;
                 }
-                break;
+                return null;
             case COMMAND_HELP:
                 if (parameters.length == 1) {
-                    presenter.helpExecute();
+                    errorType = null;
+                    state = StateType.HELP;
+                    return parameters;
                 } else {
-                    presenter.showErrorMsg(ErrorType.INCORRECT_COUNT_PARAMS);
+                    errorType = ErrorType.INCORRECT_COUNT_PARAMS;
                 }
-                break;
+                return null;
             default:
-                presenter.showErrorMsg(ErrorType.INCORRECT_COMMAND);
+                errorType = ErrorType.INCORRECT_COMMAND;
+                return null;
         }
+    }
+
+    public StateType getState() {
+        return state;
+    }
+
+    public ErrorType getErrorType() {
+        return errorType;
     }
 }

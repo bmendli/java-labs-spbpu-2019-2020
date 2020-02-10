@@ -5,5 +5,6 @@ import org.jetbrains.annotations.Nullable;
 @FunctionalInterface
 public interface Handler {
 
-    void handle(@Nullable final String data);
+    @Nullable
+    String[] handle(final String data);
 }

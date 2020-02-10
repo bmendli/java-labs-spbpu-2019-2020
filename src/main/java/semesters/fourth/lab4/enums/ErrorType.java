@@ -9,4 +9,5 @@ public enum ErrorType {
     INCORRECT_TRANSACTION,
     FAIL_EXECUTION,
     INPUT_ERROR,
+    SAME_TITLE_OR_ID_PRODUCT,
 }

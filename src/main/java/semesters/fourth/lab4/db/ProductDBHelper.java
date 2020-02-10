@@ -5,7 +5,6 @@ import org.jetbrains.annotations.Nullable;
 import semesters.fourth.lab4.Product;
 import semesters.fourth.lab4.ProductContract;
 import semesters.fourth.lab4.enums.ErrorType;
-import semesters.fourth.lab4.presenters.Presenter;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -33,8 +32,11 @@ public class ProductDBHelper implements DBHelper {
             + ProductContract.ProductColumns.COLUMN_COST + " >= ? AND "
             + ProductContract.ProductColumns.COLUMN_COST + " <= ?";
 
-    private static final String SELECT_REQUEST_PRICE_BY_NAME = "SELECT " + ProductContract.ProductColumns.COLUMN_COST
-            + " FROM " + ProductContract.TABLE_PRODUCT_NAME + " WHERE "
+    private static final String SELECT_REQUEST_PRICE_BY_NAME = "SELECT * FROM " + ProductContract.TABLE_PRODUCT_NAME + " WHERE "
+            + ProductContract.ProductColumns.COLUMN_TITLE + " = ?";
+
+    private static final String SELECT_FOR_CHECK_ADD = "SELECT * FROM " + ProductContract.TABLE_PRODUCT_NAME + " WHERE "
+            + ProductContract.ProductColumns.COLUMN_PRODUCT_ID + " = ? OR "
             + ProductContract.ProductColumns.COLUMN_TITLE + " = ?";
 
     private static final String SELECT_ALL = "SELECT * FROM " + ProductContract.TABLE_PRODUCT_NAME;
@@ -50,58 +52,75 @@ public class ProductDBHelper implements DBHelper {
 
     private static final String TRUNCATE = "TRUNCATE " + ProductContract.TABLE_PRODUCT_NAME;
 
-    @NotNull
-    private final Presenter presenter;
+    @Nullable
+    private ErrorType errorType = null;
+    private boolean isCreate = false;
 
-    public ProductDBHelper(@NotNull final Presenter presenter) {
-        this.presenter = presenter;
-
-        try {
-            Class.forName(ProductContract.DRIVER_NAME);
-            try (final Connection connection = DriverManager.getConnection(
-                    ProductContract.CONNECTION_URL,
-                    ProductContract.USER_NAME,
-                    ProductContract.USER_PASSWORD)) {
-                try (final Statement statement = connection.createStatement()) {
-                    statement.executeUpdate(CREATE_TABLE_IF_NOT_EXIST);
-                    statement.executeUpdate(TRUNCATE);
-                    addRandomCountRecords();
+    public boolean create() {
+        errorType = null;
+        if (!isCreate) {
+            try {
+                Class.forName(ProductContract.DRIVER_NAME);
+                try (final Connection connection = DriverManager.getConnection(
+                        ProductContract.CONNECTION_URL,
+                        ProductContract.USER_NAME,
+                        ProductContract.USER_PASSWORD)) {
+                    try (final Statement statement = connection.createStatement()) {
+                        statement.executeUpdate(CREATE_TABLE_IF_NOT_EXIST);
+                        statement.executeUpdate(TRUNCATE);
+                        addRandomCountRecords();
+                        isCreate = true;
+                        return true;
+                    }
+                } catch (final SQLException e) {
+                    errorType = ErrorType.INCORRECT_TRANSACTION;
                 }
-            } catch (final SQLException e) {
-                presenter.showErrorMsg(ErrorType.INCORRECT_TRANSACTION);
+            } catch (final ClassNotFoundException e) {
+                errorType = ErrorType.FAIL_EXECUTION;
             }
-        } catch (final ClassNotFoundException e) {
-            presenter.showErrorMsg(ErrorType.FAIL_EXECUTION);
         }
+        return false;
     }
 
     @Override
-    public void add(final int productId, @NotNull final String productName, final long price) {
+    public boolean add(final int productId, @NotNull final String productName, final long price) {
         try {
             Class.forName(ProductContract.DRIVER_NAME);
             try (final Connection connection = DriverManager.getConnection(
                     ProductContract.CONNECTION_URL,
                     ProductContract.USER_NAME,
                     ProductContract.USER_PASSWORD)) {
+                try (final PreparedStatement preparedStatement = connection.prepareStatement(SELECT_FOR_CHECK_ADD)) {
+                    preparedStatement.setInt(1, productId);
+                    preparedStatement.setString(2, productName);
+                    final ResultSet resultSet = preparedStatement.executeQuery();
+                    if (resultSet.next()) {
+                        errorType = ErrorType.SAME_TITLE_OR_ID_PRODUCT;
+                        return false;
+                    }
+                }
                 try (final PreparedStatement preparedStatement = connection.prepareStatement(INSERT_REQUEST)) {
                     preparedStatement.setInt(1, productId);
                     preparedStatement.setString(2, productName);
                     preparedStatement.setLong(3, price);
                     preparedStatement.executeUpdate();
-                    presenter.showResult(null);
+                    errorType = null;
+                    return true;
                 } catch (final SQLException e) {
-                    presenter.showErrorMsg(ErrorType.INCORRECT_TRANSACTION);
+                    errorType = ErrorType.INCORRECT_TRANSACTION;
                 }
             } catch (final SQLException e) {
-                presenter.showErrorMsg(ErrorType.INCORRECT_TRANSACTION);
+                errorType = ErrorType.INCORRECT_TRANSACTION;
             }
         } catch (final ClassNotFoundException e) {
-            presenter.showErrorMsg(ErrorType.FAIL_EXECUTION);
+            errorType = ErrorType.FAIL_EXECUTION;
         }
+        return false;
     }
 
     @Override
-    public void update(@NotNull final String productName, final long price) {
+    public boolean update(@NotNull final String productName, final long price) {
+        errorType = null;
         try {
             Class.forName(ProductContract.DRIVER_NAME);
             try (final Connection connection = DriverManager.getConnection(
@@ -112,20 +131,23 @@ public class ProductDBHelper implements DBHelper {
                     preparedStatement.setLong(1, price);
                     preparedStatement.setString(2, productName);
                     preparedStatement.executeUpdate();
-                    presenter.showResult(null);
+                    return true;
                 } catch (final SQLException e) {
-                    presenter.showErrorMsg(ErrorType.INCORRECT_TRANSACTION);
+                    errorType = ErrorType.INCORRECT_TRANSACTION;
                 }
             } catch (final SQLException e) {
-                presenter.showErrorMsg(ErrorType.INCORRECT_TRANSACTION);
+                errorType = ErrorType.INCORRECT_TRANSACTION;
             }
         } catch (final ClassNotFoundException e) {
-            presenter.showErrorMsg(ErrorType.FAIL_EXECUTION);
+            errorType = ErrorType.FAIL_EXECUTION;
         }
+        return false;
     }
 
+    @Nullable
     @Override
-    public void selectProductsByPriceInRange(final long priceFrom, final long priceTo) {
+    public List<Product> selectProductsByPriceInRange(final long priceFrom, final long priceTo) {
+        errorType = null;
         try {
             Class.forName(ProductContract.DRIVER_NAME);
             try (final Connection connection = DriverManager.getConnection(
@@ -136,23 +158,23 @@ public class ProductDBHelper implements DBHelper {
                     preparedStatement.setLong(1, priceFrom);
                     preparedStatement.setLong(2, priceTo);
                     final ResultSet resultSet = preparedStatement.executeQuery();
-                    List<Product> products = buildProductsRequest(resultSet);
-                    if (products.isEmpty()) return;
-                    presenter.showResult(products);
+                    return buildProductsRequest(resultSet);
                 } catch (final SQLException e) {
                     System.out.println(e.getMessage());
-                    presenter.showErrorMsg(ErrorType.INCORRECT_TRANSACTION);
+                    errorType = ErrorType.INCORRECT_TRANSACTION;
                 }
             } catch (final SQLException e) {
-                presenter.showErrorMsg(ErrorType.INCORRECT_TRANSACTION);
+                errorType = ErrorType.INCORRECT_TRANSACTION;
             }
         } catch (final ClassNotFoundException e) {
-            presenter.showErrorMsg(ErrorType.FAIL_EXECUTION);
+            errorType = ErrorType.FAIL_EXECUTION;
         }
+        return null;
     }
 
     @Override
-    public void delete(@NotNull final String productName) {
+    public boolean delete(@NotNull final String productName) {
+        errorType = null;
         try {
             Class.forName(ProductContract.DRIVER_NAME);
             try (final Connection connection = DriverManager.getConnection(
@@ -162,20 +184,22 @@ public class ProductDBHelper implements DBHelper {
                 try (final PreparedStatement preparedStatement = connection.prepareStatement(DELETE_PRODUCT_REQUEST)) {
                     preparedStatement.setString(1, productName);
                     preparedStatement.executeUpdate();
-                    presenter.showResult(null);
+                    return true;
                 } catch (final SQLException e) {
-                    presenter.showErrorMsg(ErrorType.INCORRECT_TRANSACTION);
+                    errorType = ErrorType.INCORRECT_TRANSACTION;
                 }
             } catch (final SQLException e) {
-                presenter.showErrorMsg(ErrorType.INCORRECT_TRANSACTION);
+                errorType = ErrorType.INCORRECT_TRANSACTION;
             }
         } catch (final ClassNotFoundException e) {
-            presenter.showErrorMsg(ErrorType.FAIL_EXECUTION);
+            errorType = ErrorType.FAIL_EXECUTION;
         }
+        return false;
     }
 
     @Override
-    public void selectPriceByName(@NotNull final String productName) {
+    public List<Product> selectPriceByName(@NotNull final String productName) {
+        errorType = null;
         try {
             Class.forName(ProductContract.DRIVER_NAME);
             try (final Connection connection = DriverManager.getConnection(
@@ -188,31 +212,33 @@ public class ProductDBHelper implements DBHelper {
                     if (resultSet.next()) {
                         final List<Product> products = Collections.singletonList(
                                 new Product(
-                                        0,
-                                        "",
+                                        resultSet.getInt(ProductContract.ProductColumns.COLUMN_PRODUCT_ID),
+                                        resultSet.getString(ProductContract.ProductColumns.COLUMN_TITLE),
                                         resultSet.getLong(ProductContract.ProductColumns.COLUMN_COST)));
                         if (resultSet.next()) {
-                            presenter.showErrorMsg(ErrorType.INCORRECT_TRANSACTION);
-                            return;
+                            errorType = ErrorType.INCORRECT_TRANSACTION;
+                            return null;
                         }
-                        presenter.showResult(products);
+                        return products;
                     } else {
-                        presenter.showErrorMsg(ErrorType.NOT_DATA);
+                        errorType = ErrorType.NOT_DATA;
                     }
                 } catch (final SQLException e) {
                     System.out.println(e.getMessage());
-                    presenter.showErrorMsg(ErrorType.INCORRECT_TRANSACTION);
+                    errorType = ErrorType.INCORRECT_TRANSACTION;
                 }
             } catch (final SQLException e) {
-                presenter.showErrorMsg(ErrorType.INCORRECT_TRANSACTION);
+                errorType = ErrorType.INCORRECT_TRANSACTION;
             }
         } catch (final ClassNotFoundException e) {
-            presenter.showErrorMsg(ErrorType.FAIL_EXECUTION);
+            errorType = ErrorType.FAIL_EXECUTION;
         }
+        return null;
     }
 
     @Override
-    public void selectAll() {
+    public List<Product> selectAll() {
+        errorType = null;
         try {
             Class.forName(ProductContract.DRIVER_NAME);
             try (final Connection connection = DriverManager.getConnection(
@@ -221,19 +247,18 @@ public class ProductDBHelper implements DBHelper {
                     ProductContract.USER_PASSWORD)) {
                 try (final Statement statement = connection.createStatement()) {
                     final ResultSet resultSet = statement.executeQuery(SELECT_ALL);
-                    List<Product> products = buildProductsRequest(resultSet);
-                    if (products.isEmpty()) return;
-                    presenter.showResult(products);
+                    return buildProductsRequest(resultSet);
                 } catch (final SQLException e) {
                     System.out.println(e.getMessage());
-                    presenter.showErrorMsg(ErrorType.INCORRECT_TRANSACTION);
+                    errorType = ErrorType.INCORRECT_TRANSACTION;
                 }
             } catch (final SQLException e) {
-                presenter.showErrorMsg(ErrorType.INCORRECT_TRANSACTION);
+                errorType = ErrorType.INCORRECT_TRANSACTION;
             }
         } catch (final ClassNotFoundException e) {
-            presenter.showErrorMsg(ErrorType.FAIL_EXECUTION);
+            errorType = ErrorType.FAIL_EXECUTION;
         }
+        return null;
     }
 
     @NotNull
@@ -246,14 +271,14 @@ public class ProductDBHelper implements DBHelper {
                             resultSet.getString(ProductContract.ProductColumns.COLUMN_TITLE),
                             resultSet.getLong(ProductContract.ProductColumns.COLUMN_COST)));
         }
-
         if (products.isEmpty()) {
-            presenter.showErrorMsg(ErrorType.NOT_DATA);
+            errorType =  ErrorType.NOT_DATA;
         }
         return products;
     }
 
     private void addRandomCountRecords() {
+        errorType = null;
         final int count = new Random().nextInt(50) + 10;
         try {
             Class.forName(ProductContract.DRIVER_NAME);
@@ -268,14 +293,19 @@ public class ProductDBHelper implements DBHelper {
                         preparedStatement.setLong(3, i * 10);
                         preparedStatement.executeUpdate();
                     } catch (SQLException e) {
-                        presenter.showErrorMsg(ErrorType.INCORRECT_TRANSACTION);
+                        errorType = ErrorType.INCORRECT_TRANSACTION;
                     }
                 }
             } catch (final SQLException e) {
-                presenter.showErrorMsg(ErrorType.INCORRECT_TRANSACTION);
+                errorType = ErrorType.INCORRECT_TRANSACTION;
             }
         } catch (final ClassNotFoundException e) {
-            presenter.showErrorMsg(ErrorType.FAIL_EXECUTION);
+            errorType = ErrorType.FAIL_EXECUTION;
         }
+    }
+
+    @Nullable
+    public ErrorType getErrorType() {
+        return errorType;
     }
 }
