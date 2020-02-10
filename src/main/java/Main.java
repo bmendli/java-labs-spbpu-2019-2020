@@ -22,6 +22,7 @@ public class Main extends Application {
             );
             GridPane gridPane = fxmlLoader.load();
             Scene scene = new Scene(gridPane, 1300, 850);
+            primaryStage.setResizable(false);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
